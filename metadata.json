@@ -1,0 +1,5 @@
+{
+  "name": "Image Location Extractor",
+  "description": "An application that uses AI to analyze an uploaded image, such as a map screenshot, and extracts key information like date, time, and location.",
+  "requestFramePermissions": []
+}
