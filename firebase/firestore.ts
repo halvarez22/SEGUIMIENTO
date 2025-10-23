@@ -61,7 +61,7 @@ export const firestoreService = {
       const q = query(
         collection(db!, COLLECTION_NAME),
         orderBy('timestamp', 'desc'),
-        limit(50)
+        limit(1000) // Aumentado para manejar más de 100 archivos KMZ
       );
 
       const querySnapshot = await getDocs(q);

@@ -367,7 +367,7 @@ const App: React.FC = () => {
 
         // Update local state
         setHistory(prevHistory => {
-          const updatedHistory = [...newEntries, ...prevHistory].slice(0, 50);
+          const updatedHistory = [...newEntries, ...prevHistory].slice(0, 1000); // Aumentado para manejar más archivos
           console.log('💾 [SAVE] Estado local actualizado:', updatedHistory.length, 'entradas totales');
 
           // También guardar en localStorage como respaldo
@@ -386,7 +386,7 @@ const App: React.FC = () => {
 
         // Fallback to localStorage
         setHistory(prevHistory => {
-          const updatedHistory = [...newEntries, ...prevHistory].slice(0, 50);
+          const updatedHistory = [...newEntries, ...prevHistory].slice(0, 1000); // Aumentado para manejar más archivos
           try {
             localStorage.setItem('analysisHistory', JSON.stringify(updatedHistory));
             console.log('✅ [SAVE] Fallback exitoso: guardado en localStorage');
@@ -580,7 +580,7 @@ const App: React.FC = () => {
 
           // Actualizar estado local
           setHistory(prevHistory => {
-            const updatedHistory = [...sampleEntries, ...prevHistory].slice(0, 50);
+            const updatedHistory = [...sampleEntries, ...prevHistory].slice(0, 1000); // Aumentado para manejar más archivos
             return updatedHistory;
           });
 
@@ -590,7 +590,7 @@ const App: React.FC = () => {
         } catch (firestoreError) {
           console.error("Failed to save sample data to Firestore, falling back to localStorage", firestoreError);
           setHistory(prevHistory => {
-            const updatedHistory = [...sampleEntries, ...prevHistory].slice(0, 50);
+            const updatedHistory = [...sampleEntries, ...prevHistory].slice(0, 1000); // Aumentado para manejar más archivos
             localStorage.setItem('analysisHistory', JSON.stringify(updatedHistory));
             return updatedHistory;
           });
