@@ -17,6 +17,7 @@ import { AutoUpdateService, UpdateCheckResult } from './services/autoUpdateServi
 import { AuditService } from './services/auditService';
 import { ApiKeySetup } from './components/ApiKeySetup';
 import { DaySelector } from './components/DaySelector';
+import { PaginationControls } from './components/PaginationControls';
 // import { AutoLoadManager } from './components/AutoLoadManager'; // Desactivado temporalmente
 import { GeocodingService } from './services/geocodingService';
 import { isChatbotAvailable } from './services/geminiService';
@@ -44,6 +45,9 @@ const App: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [geocodingCache, setGeocodingCache] = useState<Map<string, string>>(new Map());
   const [enrichedFilteredHistory, setEnrichedFilteredHistory] = useState<HistoryEntry[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(50); // Más ítems en PC, menos en móvil
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
    useEffect(() => {
     try {
@@ -59,6 +63,20 @@ const App: React.FC = () => {
     } finally {
         setAuthChecked(true);
     }
+  }, []);
+
+  // Detectar dispositivo móvil y ajustar configuración
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      setIsMobile(mobile);
+      setItemsPerPage(mobile ? 20 : 100); // 20 para móvil, 100 para PC
+      setCurrentPage(1); // Reset a primera página cuando cambia el dispositivo
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   useEffect(() => {
@@ -231,17 +249,29 @@ const App: React.FC = () => {
     history.some(entry => entry.data.latitude !== null && entry.data.longitude !== null),
   [history]);
 
-  // Enriquecer entradas con geocoding
+  // Calcular datos paginados
+  const paginatedHistory = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return filteredHistory.slice(startIndex, endIndex);
+  }, [filteredHistory, currentPage, itemsPerPage]);
+
+  // Calcular información de paginación
+  const totalPages = Math.ceil(filteredHistory.length / itemsPerPage);
+  const startItem = (currentPage - 1) * itemsPerPage + 1;
+  const endItem = Math.min(currentPage * itemsPerPage, filteredHistory.length);
+
+  // Enriquecer entradas con geocoding (solo la página actual)
   useEffect(() => {
     const enrichHistory = async () => {
-      if (filteredHistory.length === 0) {
+      if (paginatedHistory.length === 0) {
         setEnrichedFilteredHistory([]);
         return;
       }
 
       try {
         const enriched = await Promise.all(
-          filteredHistory.map(async (entry) => {
+          paginatedHistory.map(async (entry) => {
             let location = entry.data.location;
 
             // Si no tenemos una ubicación geocodificada legible y tenemos coordenadas, obtenerla
@@ -273,27 +303,56 @@ const App: React.FC = () => {
         setEnrichedFilteredHistory(enriched);
       } catch (error) {
         console.error('Error enriching history:', error);
-        setEnrichedFilteredHistory(filteredHistory);
+        setEnrichedFilteredHistory(paginatedHistory);
       }
     };
 
     enrichHistory();
-  }, [filteredHistory]);
+  }, [paginatedHistory]);
 
   // Función para manejar selección de día
   const handleDateSelect = useCallback((date: string | null) => {
     setSelectedDate(date);
+    setCurrentPage(1); // Reset a primera página cuando cambia la selección
     // Limpiar geocoding cache cuando cambia la selección
     GeocodingService.clearCache();
     setGeocodingCache(new Map());
   }, []);
 
+  // Funciones de paginación
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page);
+    // Limpiar geocoding cache al cambiar de página para optimizar memoria
+    GeocodingService.clearCache();
+    setGeocodingCache(new Map());
+  }, []);
+
+  const handleNextPage = useCallback(() => {
+    if (currentPage < totalPages) {
+      handlePageChange(currentPage + 1);
+    }
+  }, [currentPage, totalPages, handlePageChange]);
+
+  const handlePrevPage = useCallback(() => {
+    if (currentPage > 1) {
+      handlePageChange(currentPage - 1);
+    }
+  }, [currentPage, handlePageChange]);
+
   const handleFileSelect = useCallback(async (files: File[]) => {
     if (files.length === 0) return;
 
     setProgress({ current: 0, total: files.length });
-    setLoadingState({ isLoading: true, message: `Preparando ${files.length} archivo(s) KMZ...` });
+    setLoadingState({
+      isLoading: true,
+      message: isMobile
+        ? `Procesando ${files.length} archivo(s)...`
+        : `Preparando ${files.length} archivo(s) KMZ para carga por lotes...`
+    });
     setError(null);
+
+    // Reset paginación cuando se cargan nuevos archivos
+    setCurrentPage(1);
 
     const processingPromises = files.map(async (file) => {
       try {
@@ -311,7 +370,16 @@ const App: React.FC = () => {
         const geoDataArray = convertKMZToGeoData(kmzData, kmzDataSource.fileName);
 
         // After processing, update progress
-        setProgress(prev => ({ ...prev, current: prev.current + 1 }));
+        setProgress(prev => {
+          const newCurrent = prev.current + 1;
+          setLoadingState({
+            isLoading: true,
+            message: isMobile
+              ? `Procesando... (${newCurrent} de ${files.length})`
+              : `Procesando lote KMZ... (${newCurrent} de ${files.length})`
+          });
+          return { ...prev, current: newCurrent };
+        });
 
         return {
           status: 'fulfilled',
@@ -335,7 +403,12 @@ const App: React.FC = () => {
     });
 
     // Update message to show processing has started
-    setLoadingState({ isLoading: true, message: `Procesando archivos KMZ... (0 of ${files.length})` });
+    setLoadingState({
+      isLoading: true,
+      message: isMobile
+        ? `Procesando archivos... (0 de ${files.length})`
+        : `Procesando archivos KMZ por lotes... (0 de ${files.length})`
+    });
 
     const results = await Promise.all(processingPromises);
 
@@ -400,8 +473,13 @@ const App: React.FC = () => {
 
     if (processingErrors.length > 0) {
       setError(
-        `Procesamiento completado. ${newEntries.length} features procesadas de ${files.length} archivos.\n\nErrores:\n- ${processingErrors.join('\n- ')}`
+        `Procesamiento completado. ${newEntries.length} features procesadas de ${files.length} archivos.\n\nErrores encontrados:\n- ${processingErrors.join('\n- ')}`
       );
+    }
+
+    // Mensaje final de éxito
+    if (newEntries.length > 0 && !isMobile) {
+      console.log(`✅ Procesamiento por lotes completado: ${newEntries.length} puntos GPS procesados`);
     }
 
     setLoadingState({ isLoading: false, message: '' });
@@ -958,6 +1036,22 @@ const App: React.FC = () => {
                 minDate={minDate}
                 maxDate={maxDate}
                 selectedDate={selectedDate}
+              />
+            )}
+
+            {/* Controles de paginación */}
+            {filteredHistory.length > itemsPerPage && (
+              <PaginationControls
+                currentPage={currentPage}
+                totalPages={totalPages}
+                startItem={startItem}
+                endItem={endItem}
+                totalItems={filteredHistory.length}
+                itemsPerPage={itemsPerPage}
+                onPageChange={handlePageChange}
+                onNextPage={handleNextPage}
+                onPrevPage={handlePrevPage}
+                isMobile={isMobile}
               />
             )}
 
