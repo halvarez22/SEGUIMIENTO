@@ -1,0 +1,141 @@
+{
+  "fileName": "Sábado 18 de Octubre.kmz",
+  "features": [
+    {
+      "id": "Sábado 18 de Octubre.kmz_0",
+      "name": "1 - 13:25",
+      "description": "",
+      "date": "",
+      "time": "13:25",
+      "location": "1 - 13:25",
+      "latitude": 21.14887283504768,
+      "longitude": -101.6893305058447,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6893305058447,
+          21.14887283504768,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 13:25",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin",
+        "label-opacity": 1,
+        "label-color": "#55ff00",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/A.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Sábado 18 de Octubre.kmz_1",
+      "name": "2 - 13:33",
+      "description": "",
+      "date": "",
+      "time": "13:33",
+      "location": "2 - 13:33",
+      "latitude": 21.1651003,
+      "longitude": -101.6933657,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6933657,
+          21.1651003,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 13:33",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle",
+        "label-opacity": 1,
+        "label-color": "#5555ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#5555ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Sábado 18 de Octubre.kmz_2",
+      "name": "3 - 13:40",
+      "description": "",
+      "date": "",
+      "time": "13:40",
+      "location": "3 - 13:40",
+      "latitude": 21.1626667,
+      "longitude": -101.6927685999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6927685999999,
+          21.1626667,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 13:40",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle",
+        "label-opacity": 1,
+        "label-color": "#5555ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#5555ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Sábado 18 de Octubre.kmz_3",
+      "name": "4 - 18:35 a 21:22",
+      "description": "",
+      "date": "",
+      "time": "18:35",
+      "location": "4 - 18:35 a 21:22",
+      "latitude": 21.1692841,
+      "longitude": -101.7034719999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7034719999999,
+          21.1692841,
+          0
+        ]
+      },
+      "properties": {
+        "name": "4 - 18:35 a 21:22",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle",
+        "label-opacity": 1,
+        "label-color": "#5555ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#5555ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 4,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

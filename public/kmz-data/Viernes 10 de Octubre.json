@@ -1,0 +1,74 @@
+{
+  "fileName": "Viernes 10 de Octubre.kmz",
+  "features": [
+    {
+      "id": "Viernes 10 de Octubre.kmz_0",
+      "name": "1 - 7:53 a 8:45",
+      "description": "",
+      "date": "",
+      "time": "07:53",
+      "location": "1 - 7:53 a 8:45",
+      "latitude": 21.16565018055958,
+      "longitude": -101.7043520628311,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7043520628311,
+          21.16565018055958,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 7:53 a 8:45",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle30",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Viernes 10 de Octubre.kmz_1",
+      "name": "2 - 9:17",
+      "description": "",
+      "date": "",
+      "time": "09:17",
+      "location": "2 - 9:17",
+      "latitude": 21.1614382,
+      "longitude": -101.692889,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.692889,
+          21.1614382,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 9:17",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle30",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 2,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

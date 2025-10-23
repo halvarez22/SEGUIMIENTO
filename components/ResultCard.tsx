@@ -12,16 +12,18 @@ interface ResultCardProps {
   onDateRangeChange: (range: { start: string | null; end: string | null }) => void;
   minDate?: string;
   maxDate?: string;
+  selectedDate?: string | null;
 }
 
-export const ResultCard: React.FC<ResultCardProps> = ({ 
-  currentResult, 
+export const ResultCard: React.FC<ResultCardProps> = ({
+  currentResult,
   filteredEntries,
   showFilter,
   dateRange,
   onDateRangeChange,
   minDate,
-  maxDate
+  maxDate,
+  selectedDate
  }) => {
 
   return (
@@ -37,8 +39,9 @@ export const ResultCard: React.FC<ResultCardProps> = ({
             maxDate={maxDate}
           />
           <div className="mt-4 rounded-lg overflow-hidden border border-gray-600">
-            <MapDisplay 
+            <MapDisplay
               entries={filteredEntries}
+              selectedDate={selectedDate}
             />
           </div>
         </div>
@@ -46,8 +49,9 @@ export const ResultCard: React.FC<ResultCardProps> = ({
       
       {currentResult && !showFilter && currentResult.latitude && currentResult.longitude && (
          <div className="mb-6 rounded-lg overflow-hidden border border-gray-600">
-           <MapDisplay 
+           <MapDisplay
              entries={[{ id: 'current', data: currentResult, imagePreview: '', timestamp:'' }]}
+             selectedDate={selectedDate}
            />
          </div>
       )}

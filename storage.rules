@@ -1,0 +1,26 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Carpeta para archivos KMZ - solo usuarios autenticados pueden escribir
+    match /kmz-files/{allPaths=**} {
+      allow read: if true; // Permitir lectura pública para procesamiento
+      allow write: if request.auth != null; // Solo usuarios autenticados pueden subir
+      allow delete: if request.auth != null; // Solo usuarios autenticados pueden borrar
+    }
+
+    // Carpeta para backups - solo usuarios autenticados
+    match /backups/{allPaths=**} {
+      allow read, write, delete: if request.auth != null;
+    }
+
+    // Archivos temporales - solo usuarios autenticados
+    match /temp/{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Por defecto: solo usuarios autenticados
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

@@ -3,27 +3,44 @@ import { Spinner } from './icons';
 
 interface KMZUploaderProps {
   onFileSelect: (files: File[]) => void;
+  onUpdateSelect?: (files: File[]) => void;
   fileName: string | null;
   isLoading: boolean;
+  hasExistingData?: boolean;
 }
 
-export const KMZUploader: React.FC<KMZUploaderProps> = ({ onFileSelect, fileName, isLoading }) => {
+export const KMZUploader: React.FC<KMZUploaderProps> = ({
+  onFileSelect,
+  onUpdateSelect,
+  fileName,
+  isLoading,
+  hasExistingData = false
+}) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files && files.length > 0) {
       // Validar que sean archivos KMZ
-      const invalidFiles = Array.from(files).filter(file => !file.name.toLowerCase().endsWith('.kmz'));
+      const fileArray = Array.from(files);
+      const invalidFiles = fileArray.filter(file => !file.name.toLowerCase().endsWith('.kmz'));
       if (invalidFiles.length > 0) {
         alert(`Solo se permiten archivos KMZ. Los siguientes archivos no son válidos: ${invalidFiles.map(f => f.name).join(', ')}`);
         return;
       }
 
-      onFileSelect(Array.from(files));
+      // Determinar si es modo actualización o subida normal
+      const isUpdateMode = event.target.getAttribute('data-mode') === 'update';
 
-      // Clear the file input to allow selecting the same file again.
+      if (isUpdateMode && onUpdateSelect) {
+        onUpdateSelect(fileArray);
+      } else {
+        onFileSelect(fileArray);
+      }
+
+      // Limpiar el atributo data-mode
       if (event.target) {
+        event.target.removeAttribute('data-mode');
         event.target.value = '';
       }
     }
@@ -79,13 +96,30 @@ export const KMZUploader: React.FC<KMZUploaderProps> = ({ onFileSelect, fileName
           </div>
         )}
       </div>
-      <button
-        onClick={handleClick}
-        disabled={isLoading}
-        className="mt-4 w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-      >
-        {isLoading ? 'Procesando...' : fileName ? 'Subir Más Archivos KMZ' : 'Seleccionar Archivo(s) KMZ'}
-      </button>
+      <div className="mt-4 space-y-2">
+        <button
+          onClick={handleClick}
+          disabled={isLoading}
+          className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+        >
+          {isLoading ? 'Procesando...' : fileName ? 'Subir Más Archivos KMZ' : 'Seleccionar Archivo(s) KMZ'}
+        </button>
+
+        {hasExistingData && onUpdateSelect && (
+          <button
+            onClick={() => {
+              if (fileInputRef.current) {
+                fileInputRef.current.setAttribute('data-mode', 'update');
+                fileInputRef.current.click();
+              }
+            }}
+            disabled={isLoading}
+            className="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 text-sm"
+          >
+            🔄 Actualizar con Nuevos KMZ
+          </button>
+        )}
+      </div>
     </div>
   );
 };

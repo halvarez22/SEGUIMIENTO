@@ -1,0 +1,462 @@
+{
+  "fileName": "Jueves 25 de Septiembre.kmz",
+  "features": [
+    {
+      "id": "Jueves 25 de Septiembre.kmz_0",
+      "name": "1 - 8:09",
+      "description": "",
+      "date": "",
+      "time": "08:09",
+      "location": "1 - 8:09",
+      "latitude": 21.15452452666891,
+      "longitude": -101.6971834339739,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6971834339739,
+          21.15452452666891,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 8:09",
+        "visibility": false,
+        "styleUrl": "#msn_A4",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#55ff00",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/A.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_1",
+      "name": "2 - 8:17",
+      "description": "",
+      "date": "",
+      "time": "08:17",
+      "location": "2 - 8:17",
+      "latitude": 21.15082262115564,
+      "longitude": -101.6846344237054,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6846344237054,
+          21.15082262115564,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 8:17",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_2",
+      "name": "3 - 8:49",
+      "description": "",
+      "date": "",
+      "time": "08:49",
+      "location": "3 - 8:49",
+      "latitude": 21.16921868033644,
+      "longitude": -101.6886067960389,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6886067960389,
+          21.16921868033644,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 8:49",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_3",
+      "name": "4 - 10:04",
+      "description": "",
+      "date": "",
+      "time": "10:04",
+      "location": "4 - 10:04",
+      "latitude": 21.16371960106775,
+      "longitude": -101.6928911749142,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6928911749142,
+          21.16371960106775,
+          0
+        ]
+      },
+      "properties": {
+        "name": "4 - 10:04",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_4",
+      "name": "5 - 10:25",
+      "description": "",
+      "date": "",
+      "time": "10:25",
+      "location": "5 - 10:25",
+      "latitude": 21.16987462812953,
+      "longitude": -101.7093451115435,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7093451115435,
+          21.16987462812953,
+          0
+        ]
+      },
+      "properties": {
+        "name": "5 - 10:25",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_5",
+      "name": "6 - 11:22 a 11:25",
+      "description": "",
+      "date": "",
+      "time": "11:22",
+      "location": "6 - 11:22 a 11:25",
+      "latitude": 21.0927428,
+      "longitude": -101.6225393,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6225393,
+          21.0927428,
+          0
+        ]
+      },
+      "properties": {
+        "name": "6 - 11:22 a 11:25",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_6",
+      "name": "7 - 11:48",
+      "description": "",
+      "date": "",
+      "time": "11:48",
+      "location": "7 - 11:48",
+      "latitude": 21.10182029999999,
+      "longitude": -101.6362214999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6362214999999,
+          21.10182029999999,
+          0
+        ]
+      },
+      "properties": {
+        "name": "7 - 11:48",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_7",
+      "name": "8 - 11:59 a 13:38",
+      "description": "",
+      "date": "",
+      "time": "11:59",
+      "location": "8 - 11:59 a 13:38",
+      "latitude": 21.1003587,
+      "longitude": -101.6657432999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6657432999999,
+          21.1003587,
+          0
+        ]
+      },
+      "properties": {
+        "name": "8 - 11:59 a 13:38",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_8",
+      "name": "9 - 13:51",
+      "description": "",
+      "date": "",
+      "time": "13:51",
+      "location": "9 - 13:51",
+      "latitude": 21.09789687665446,
+      "longitude": -101.6639253545364,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6639253545364,
+          21.09789687665446,
+          0
+        ]
+      },
+      "properties": {
+        "name": "9 - 13:51",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_9",
+      "name": "10 - 13:55",
+      "description": "",
+      "date": "",
+      "time": "13:55",
+      "location": "10 - 13:55",
+      "latitude": 21.10284770000001,
+      "longitude": -101.6603041999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6603041999999,
+          21.10284770000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "10 - 13:55",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_10",
+      "name": "11 - 14:11",
+      "description": "",
+      "date": "",
+      "time": "14:11",
+      "location": "11 - 14:11",
+      "latitude": 21.15238978076689,
+      "longitude": -101.6760717665499,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6760717665499,
+          21.15238978076689,
+          0
+        ]
+      },
+      "properties": {
+        "name": "11 - 14:11",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_11",
+      "name": "12 - 14:15",
+      "description": "",
+      "date": "",
+      "time": "14:15",
+      "location": "12 - 14:15",
+      "latitude": 21.15528806695802,
+      "longitude": -101.6871930626077,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6871930626077,
+          21.15528806695802,
+          0
+        ]
+      },
+      "properties": {
+        "name": "12 - 14:15",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_12",
+      "name": "13 - 14:16",
+      "description": "",
+      "date": "",
+      "time": "14:16",
+      "location": "13 - 14:16",
+      "latitude": 21.1566179,
+      "longitude": -101.6896966,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6896966,
+          21.1566179,
+          0
+        ]
+      },
+      "properties": {
+        "name": "13 - 14:16",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin6",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#0000ff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 25 de Septiembre.kmz_13",
+      "name": "14 - 14:22",
+      "description": "",
+      "date": "",
+      "time": "14:22",
+      "location": "14 - 14:22",
+      "latitude": 21.15875326909968,
+      "longitude": -101.6986896852546,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6986896852546,
+          21.15875326909968,
+          0
+        ]
+      },
+      "properties": {
+        "name": "14 - 14:22",
+        "visibility": false,
+        "styleUrl": "#msn_Z00",
+        "label-opacity": 1,
+        "label-color": "#0000ff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ff0000",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/Z.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 14,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

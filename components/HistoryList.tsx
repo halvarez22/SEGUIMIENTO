@@ -75,7 +75,17 @@ export const HistoryList: React.FC<HistoryListProps> = ({ history, onSelect, onD
                 tabIndex={0}
                 onKeyDown={(e) => e.key === 'Enter' && onSelect(entry)}
               >
-                <img src={entry.imagePreview} alt="History thumbnail" className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md bg-gray-700 flex-shrink-0" />
+                {entry.preview ? (
+                  <img src={entry.preview} alt="History thumbnail" className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md bg-gray-700 flex-shrink-0" />
+                ) : (
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gray-700 rounded-md flex items-center justify-center flex-shrink-0">
+                    {entry.source === 'kmz' ? (
+                      <div className="text-blue-400 text-xs font-bold">KMZ</div>
+                    ) : (
+                      <div className="text-gray-400 text-xs">📍</div>
+                    )}
+                  </div>
+                )}
                 <div className="overflow-hidden">
                   <p className="text-white font-semibold truncate group-hover:text-blue-400 transition-colors">{entry.data.location || 'Unknown Location'}</p>
                   <p className="text-gray-400 text-sm">{entry.data.date || 'Unknown Date'}</p>

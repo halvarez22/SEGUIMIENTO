@@ -1,0 +1,245 @@
+{
+  "fileName": "Viernes 17 de Octubre.kmz",
+  "features": [
+    {
+      "id": "Viernes 17 de Octubre.kmz_0",
+      "name": "1 - 9:16",
+      "description": "",
+      "date": "",
+      "time": "09:16",
+      "location": "1 - 9:16",
+      "latitude": 21.15460991975049,
+      "longitude": -101.6971984929608,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6971984929608,
+          21.15460991975049,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 9:16",
+        "visibility": false,
+        "styleUrl": "#msn_A2",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.9,
+        "icon-opacity": 1,
+        "icon-color": "#aaff00",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/A.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Viernes 17 de Octubre.kmz_1",
+      "name": "2 - 9:19",
+      "description": "",
+      "date": "",
+      "time": "09:19",
+      "location": "2 - 9:19",
+      "latitude": 21.15559996308583,
+      "longitude": -101.7061700160522,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7061700160522,
+          21.15559996308583,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 9:19",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle03",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.9,
+        "icon-opacity": 1,
+        "icon-color": "#aaff00",
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Viernes 17 de Octubre.kmz_2",
+      "name": "3 - 9:24 a 10:35",
+      "description": "",
+      "date": "",
+      "time": "09:24",
+      "location": "3 - 9:24 a 10:35",
+      "latitude": 21.1529371,
+      "longitude": -101.7161481,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7161481,
+          21.1529371,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 9:24 a 10:35",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle03",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.9,
+        "icon-opacity": 1,
+        "icon-color": "#aaff00",
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Viernes 17 de Octubre.kmz_3",
+      "name": "4 - 12:53",
+      "description": "",
+      "date": "",
+      "time": "12:53",
+      "location": "4 - 12:53",
+      "latitude": 21.1544466,
+      "longitude": -101.6962639999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6962639999999,
+          21.1544466,
+          0
+        ]
+      },
+      "properties": {
+        "name": "4 - 12:53",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle03",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.9,
+        "icon-opacity": 1,
+        "icon-color": "#aaff00",
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Viernes 17 de Octubre.kmz_4",
+      "name": "5 - 14:33",
+      "description": "",
+      "date": "",
+      "time": "14:33",
+      "location": "5 - 14:33",
+      "latitude": 21.1492279,
+      "longitude": -101.6944373,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6944373,
+          21.1492279,
+          0
+        ]
+      },
+      "properties": {
+        "name": "5 - 14:33",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle03",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.9,
+        "icon-opacity": 1,
+        "icon-color": "#aaff00",
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Viernes 17 de Octubre.kmz_5",
+      "name": "6 - 15:05",
+      "description": "",
+      "date": "",
+      "time": "15:05",
+      "location": "6 - 15:05",
+      "latitude": 21.14885109999999,
+      "longitude": -101.6901805,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6901805,
+          21.14885109999999,
+          0
+        ]
+      },
+      "properties": {
+        "name": "6 - 15:05",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle03",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.9,
+        "icon-opacity": 1,
+        "icon-color": "#aaff00",
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Viernes 17 de Octubre.kmz_6",
+      "name": "7 - 15:18",
+      "description": "",
+      "date": "",
+      "time": "15:18",
+      "location": "7 - 15:18",
+      "latitude": 21.1607976024128,
+      "longitude": -101.694799682259,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.694799682259,
+          21.1607976024128,
+          0
+        ]
+      },
+      "properties": {
+        "name": "7 - 15:18",
+        "visibility": false,
+        "styleUrl": "#msn_Z",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.9,
+        "icon-opacity": 1,
+        "icon-color": "#ff0000",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/Z.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 7,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

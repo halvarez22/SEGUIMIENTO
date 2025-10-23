@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { HistoryEntry } from '../types';
-import { getChatbotResponse } from '../services/geminiService';
+import { getChatbotResponse, processAnalyticalQuery, isChatbotAvailable } from '../services/geminiService';
+import { ApiKeySetup } from './ApiKeySetup';
 import { SendIcon, CloseIcon } from './icons';
 
 interface ChatbotProps {
@@ -25,10 +26,31 @@ const TypingIndicator: React.FC = () => (
 
 export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, history }) => {
   const [messages, setMessages] = useState<Message[]>([
-    { sender: 'bot', text: '¡Hola! Soy tu asistente de viajes. Pregúntame sobre tu historial de ubicaciones.' },
+    {
+      sender: 'bot',
+      text: isChatbotAvailable()
+        ? '¡Hola! Soy tu asistente de viajes. Pregúntame sobre tu historial de ubicaciones.'
+        : '🤖 Chatbot no disponible. Configura tu API key de Gemini para habilitar respuestas inteligentes.'
+    },
   ]);
+
+  // Estado para controlar si hemos saludado inicialmente
+  const [hasInitialGreeting, setHasInitialGreeting] = useState(false);
+
+  // Mostrar saludo inicial cuando el chatbot se vuelve disponible
+  useEffect(() => {
+    if (isChatbotAvailable() && !hasInitialGreeting && messages.length === 1) {
+      const botMessage: Message = {
+        sender: 'bot',
+        text: '¡Hola! Soy tu asistente de viajes. Pregúntame sobre tu historial de ubicaciones.'
+      };
+      setMessages([botMessage]);
+      setHasInitialGreeting(true);
+    }
+  }, [isChatbotAvailable(), hasInitialGreeting, messages.length]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showApiKeySetup, setShowApiKeySetup] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -42,13 +64,28 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, history }) =>
     const trimmedInput = inputValue.trim();
     if (!trimmedInput || isLoading) return;
 
+    // Verificar si el chatbot está disponible
+    if (!isChatbotAvailable()) {
+      const userMessage: Message = { sender: 'user', text: trimmedInput };
+      setMessages(prev => [...prev, userMessage]);
+
+      const botMessage: Message = {
+        sender: 'bot',
+        text: '🤖 El chatbot no está disponible porque falta configurar la API key de Gemini. Haz clic en "Configurar API Key" para habilitar respuestas inteligentes.'
+      };
+
+      setMessages(prev => [...prev, botMessage]);
+      setInputValue('');
+      return;
+    }
+
     const userMessage: Message = { sender: 'user', text: trimmedInput };
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
     setIsLoading(true);
 
     try {
-      const botResponse = await getChatbotResponse(trimmedInput, history);
+      const botResponse = await processAnalyticalQuery(trimmedInput, history);
       const botMessage: Message = { sender: 'bot', text: botResponse };
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
@@ -73,10 +110,28 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, history }) =>
       ></div>
       <div className="fixed bottom-0 right-0 sm:bottom-4 sm:right-4 w-full h-full sm:h-[70vh] sm:max-h-[600px] max-w-lg bg-gray-800 rounded-t-lg sm:rounded-lg shadow-2xl z-50 flex flex-col border border-gray-700 animate-slide-in-up">
         <header className="flex items-center justify-between p-4 bg-gray-900/70 border-b border-gray-700 rounded-t-lg sm:rounded-t-lg flex-shrink-0">
-          <h2 className="text-lg font-bold text-white">Asistente de Viajes</h2>
-          <button onClick={onClose} className="p-1 text-gray-400 hover:text-white transition-colors" aria-label="Close chat">
-            <CloseIcon />
-          </button>
+          <div className="flex items-center gap-2">
+            <h2 className="text-lg font-bold text-white">Asistente de Viajes</h2>
+            {!isChatbotAvailable() && (
+              <span className="text-xs bg-yellow-600 text-yellow-100 px-2 py-1 rounded-full">
+                ⚠️ Sin IA
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-2">
+            {!isChatbotAvailable() && (
+              <button
+                onClick={() => setShowApiKeySetup(true)}
+                className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded transition-colors"
+                title="Configurar API key de Gemini"
+              >
+                🔑 Configurar IA
+              </button>
+            )}
+            <button onClick={onClose} className="p-1 text-gray-400 hover:text-white transition-colors" aria-label="Close chat">
+              <CloseIcon />
+            </button>
+          </div>
         </header>
 
         <main className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -154,6 +209,18 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, history }) =>
         .animate-bounce-2 { animation: bounce-1 1.2s infinite 0.2s; }
         .animate-bounce-3 { animation: bounce-1 1.2s infinite 0.4s; }
       `}</style>
+
+      {/* API Key Setup Modal */}
+      <ApiKeySetup
+        isOpen={showApiKeySetup}
+        onClose={() => setShowApiKeySetup(false)}
+        onApiKeySet={() => {
+          // Actualizar el mensaje inicial cuando se configure la API key
+          setMessages([
+            { sender: 'bot', text: '¡Hola! Soy tu asistente de viajes. Pregúntame sobre tu historial de ubicaciones.' },
+          ]);
+        }}
+      />
     </>
   );
 };

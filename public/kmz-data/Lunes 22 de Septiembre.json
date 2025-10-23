@@ -1,0 +1,43 @@
+{
+  "fileName": "Lunes 22 de Septiembre.kmz",
+  "features": [
+    {
+      "id": "Lunes 22 de Septiembre.kmz_0",
+      "name": "1 - 20:39 a 00:23",
+      "description": "",
+      "date": "",
+      "time": "20:39",
+      "location": "1 - 20:39 a 00:23",
+      "latitude": 21.16963909464331,
+      "longitude": -101.703649929768,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.703649929768,
+          21.16963909464331,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 20:39 a 00:23",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle10",
+        "label-opacity": 1,
+        "label-color": "#55aaff",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#55aaff",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 1,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}
