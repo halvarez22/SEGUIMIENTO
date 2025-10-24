@@ -9,6 +9,7 @@ declare const L: any;
 interface MapDisplayProps {
   entries: HistoryEntry[];
   selectedDate?: string | null;
+  selectedEntry?: HistoryEntry | null;
 }
 
 // Helper to create the icon SVG string with type-specific inner symbols
@@ -59,10 +60,11 @@ if (!document.head.querySelector('#custom-marker-style')) {
   document.head.appendChild(style);
 }
 
-export const MapDisplay: React.FC<MapDisplayProps> = ({ entries, selectedDate }) => {
+export const MapDisplay: React.FC<MapDisplayProps> = ({ entries, selectedDate, selectedEntry }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const layerGroupRef = useRef<any>(null); // To hold all markers and polylines
+  const selectedMarkerRef = useRef<any>(null); // Reference to the selected marker
   const [geocodedAddresses, setGeocodedAddresses] = useState<Map<string, string>>(new Map());
   const [geocodingLoading, setGeocodingLoading] = useState<Set<string>>(new Set());
 
@@ -568,5 +570,117 @@ export const MapDisplay: React.FC<MapDisplayProps> = ({ entries, selectedDate })
     }
   }, [entries, geocodedAddresses]);
 
-  return <div ref={mapContainerRef} className="z-0 h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] w-full rounded-lg overflow-hidden" />;
+  // Handle selected entry: center map, highlight marker, show route
+  useEffect(() => {
+    if (!selectedEntry || !mapRef.current || !layerGroupRef.current) return;
+
+    const { latitude, longitude } = selectedEntry.data;
+    if (latitude === null || longitude === null) return;
+
+    // Center map on selected point with smooth animation
+    mapRef.current.flyTo([latitude, longitude], 16, {
+      duration: 1.5,
+      easeLinearity: 0.25
+    });
+
+    // Find and highlight the selected marker with bounce effect
+    layerGroupRef.current.eachLayer((layer: any) => {
+      if (layer instanceof L.Marker) {
+        const markerLatLng = layer.getLatLng();
+
+        // Check if this marker corresponds to the selected entry
+        if (Math.abs(markerLatLng.lat - latitude) < 0.0001 &&
+            Math.abs(markerLatLng.lng - longitude) < 0.0001) {
+
+          // Remove previous selected marker effect
+          if (selectedMarkerRef.current) {
+            selectedMarkerRef.current.setIcon(L.divIcon({
+              className: 'custom-map-marker',
+              html: createMarkerIconSVG('#3B82F6', 'intermediate'),
+              iconSize: [32, 48],
+              iconAnchor: [16, 48]
+            }));
+          }
+
+          // Store reference to selected marker
+          selectedMarkerRef.current = layer;
+
+          // Apply bounce effect to selected marker
+          const bounceIcon = () => {
+            let bounceCount = 0;
+            const maxBounces = 3;
+            const bounceInterval = setInterval(() => {
+              if (bounceCount >= maxBounces * 2) {
+                clearInterval(bounceInterval);
+                // Final icon with highlight color
+                layer.setIcon(L.divIcon({
+                  className: 'custom-map-marker',
+                  html: createMarkerIconSVG('#EF4444', 'intermediate'), // Red highlight
+                  iconSize: [32, 48],
+                  iconAnchor: [16, 48]
+                }));
+                return;
+              }
+
+              const scale = bounceCount % 2 === 0 ? 1.3 : 1.0;
+              layer.setIcon(L.divIcon({
+                className: 'custom-map-marker',
+                html: `<div style="transform: scale(${scale}); transition: transform 0.3s ease;">${createMarkerIconSVG('#EF4444', 'intermediate')}</div>`,
+                iconSize: [32 * scale, 48 * scale],
+                iconAnchor: [16 * scale, 48 * scale]
+              }));
+
+              bounceCount++;
+            }, 300);
+          };
+
+          // Start bounce effect after a short delay
+          setTimeout(bounceIcon, 500);
+
+          // Open popup if marker has one
+          if (layer.getPopup()) {
+            layer.openPopup();
+          }
+        }
+      }
+    });
+
+    // Show route for the selected day if there are multiple points
+    const selectedDate = selectedEntry.data.date;
+    if (selectedDate) {
+      const dayEntries = entries.filter(entry => entry.data.date === selectedDate);
+      if (dayEntries.length > 1) {
+        // Highlight the route for this day by making other markers semi-transparent
+        layerGroupRef.current.eachLayer((layer: any) => {
+          if (layer instanceof L.Marker) {
+            const isOnSelectedDay = dayEntries.some(entry =>
+              entry.data.latitude === layer.getLatLng().lat &&
+              entry.data.longitude === layer.getLatLng().lng
+            );
+
+            if (!isOnSelectedDay) {
+              // Make non-selected-day markers semi-transparent
+              const currentIcon = layer.getIcon();
+              if (currentIcon && currentIcon.options && currentIcon.options.html) {
+                const fadedHtml = currentIcon.options.html.replace(
+                  'fill="#3B82F6"',
+                  'fill="#3B82F6" opacity="0.3"'
+                );
+                layer.setIcon(L.divIcon({
+                  ...currentIcon.options,
+                  html: fadedHtml
+                }));
+              }
+            }
+          } else if (layer instanceof L.Polyline) {
+            // Make non-selected-day routes semi-transparent
+            layer.setStyle({ opacity: 0.3, weight: 2 });
+          }
+        });
+      }
+    }
+
+  }, [selectedEntry, entries]);
+
+  return <div ref={mapContainerRef} className="z-0 h-[280px] xs:h-[320px] sm:h-[380px] md:h-[450px] lg:h-[500px] w-full rounded-lg overflow-hidden touch-manipulation" />;
 };

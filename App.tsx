@@ -43,6 +43,7 @@ const App: React.FC = () => {
   const [showApiKeySetup, setShowApiKeySetup] = useState<boolean>(false);
   const [isFirebaseAvailable, setIsFirebaseAvailable] = useState<boolean>(db !== null);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [selectedHistoryEntry, setSelectedHistoryEntry] = useState<HistoryEntry | null>(null);
   const [geocodingCache, setGeocodingCache] = useState<Map<string, string>>(new Map());
   const [enrichedFilteredHistory, setEnrichedFilteredHistory] = useState<HistoryEntry[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -511,8 +512,20 @@ const App: React.FC = () => {
     if(entry.data.date) {
       setDateRange({ start: entry.data.date, end: entry.data.date });
     }
+    setSelectedHistoryEntry(entry); // Set the selected entry for map highlighting
     setError(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Scroll to map container instead of top of page
+    setTimeout(() => {
+      const mapContainer = document.getElementById('map-container');
+      if (mapContainer) {
+        mapContainer.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'nearest'
+        });
+      }
+    }, 100); // Small delay to ensure state updates are processed
   }, []);
 
   const handleDeleteHistory = useCallback(async (id: string) => {
@@ -528,6 +541,8 @@ const App: React.FC = () => {
         return updatedHistory;
       });
     }
+    // Clear selected entry if it was deleted
+    setSelectedHistoryEntry(prev => prev?.id === id ? null : prev);
   }, []);
 
   const handleClearHistory = useCallback(async () => {
@@ -596,6 +611,7 @@ const App: React.FC = () => {
       setDateRange({ start: null, end: null });
       setExtractedData(null);
       setFileName(null);
+      setSelectedHistoryEntry(null);
 
       alert(
         `🗑️ Historial movido a papelera (NO eliminado)\n\n` +
@@ -794,6 +810,7 @@ const App: React.FC = () => {
         setUpdateResult(null);
         setFileName(null);
         setExtractedData(null);
+        setSelectedHistoryEntry(null);
 
         AuditService.logBackupRestored(backupId, backupData.length);
         alert(`✅ Restauración completada!\n\nRestaurados ${backupData.length} puntos desde el backup.`);
@@ -869,28 +886,28 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center p-3 sm:p-4 md:p-6 lg:p-8">
-      <div className="w-full max-w-4xl mx-auto">
-        <header className="flex flex-col gap-4 w-full mb-6 sm:mb-8">
-            {/* Título y estado de conexión */}
+    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8">
+      <div className="w-full max-w-7xl mx-auto">
+        <header className="flex flex-col gap-3 sm:gap-4 w-full mb-4 sm:mb-6 md:mb-8">
+            {/* Título y estado de conexión - Optimizado para móvil */}
             <div className="text-center sm:text-left">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-center sm:justify-start gap-3 mb-3">
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+                <div className="flex flex-col xs:flex-row sm:flex-row sm:items-center justify-center sm:justify-start gap-2 sm:gap-3 mb-2 sm:mb-3">
+                    <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
                         KMZ Map Viewer
                     </h1>
-                    <div className={`flex items-center gap-2 px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm font-medium ${
+                    <div className={`flex items-center gap-1.5 sm:gap-2 px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm font-medium self-center sm:self-auto ${
                         isFirebaseAvailable
                             ? 'bg-green-900/50 text-green-300 border border-green-500'
                             : 'bg-yellow-900/50 text-yellow-300 border border-yellow-500'
                     }`}>
-                        <div className={`w-2 h-2 rounded-full ${
+                        <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${
                             isFirebaseAvailable ? 'bg-green-400' : 'bg-yellow-400'
                         }`}></div>
-                        <span className="hidden sm:inline">{isFirebaseAvailable ? 'Conectado' : 'Modo Local'}</span>
-                        <span className="sm:hidden">{isFirebaseAvailable ? '🟢' : '🟡'}</span>
+                        <span className="hidden xs:inline sm:inline">{isFirebaseAvailable ? 'Conectado' : 'Modo Local'}</span>
+                        <span className="xs:hidden sm:hidden">{isFirebaseAvailable ? '🟢' : '🟡'}</span>
                     </div>
                 </div>
-                <p className="text-sm sm:text-base md:text-lg text-gray-400 px-2">
+                <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-400 px-1 sm:px-2 leading-relaxed">
                     {history.length === 0
                         ? 'Carga un archivo KMZ desde tu dispositivo para comenzar.'
                         : `Mostrando ${enrichedFilteredHistory.length} puntos geoespaciales. ${isFirebaseAvailable ? 'Datos sincronizados en la nube.' : 'Modo local activo.'}`
@@ -898,14 +915,14 @@ const App: React.FC = () => {
                 </p>
             </div>
 
-            {/* Controles principales */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-1">
+            {/* Controles principales - Optimizados para móvil */}
+            <div className="flex flex-col gap-3 sm:gap-4">
+                <div className="flex flex-col xs:flex-row sm:flex-row gap-2 sm:gap-3">
                     {history.length === 0 && (
                         <button
                             onClick={handleLoadSampleData}
                             disabled={isLoadingSampleData}
-                            className="flex-shrink-0 bg-green-600/50 hover:bg-green-600 disabled:bg-green-800 text-white font-bold py-3 px-4 sm:py-2 rounded-lg transition-colors text-sm disabled:cursor-not-allowed touch-manipulation"
+                            className="flex-1 sm:flex-shrink-0 bg-green-600/50 hover:bg-green-600 disabled:bg-green-800 text-white font-bold py-3 sm:py-2.5 px-4 sm:px-4 rounded-lg transition-all text-sm disabled:cursor-not-allowed touch-manipulation active:scale-95 min-h-[44px] sm:min-h-0"
                             title="Cargar datos de ejemplo KMZ para probar la aplicación"
                         >
                             {isLoadingSampleData ? 'Cargando...' : '📍 Cargar Ejemplos'}
@@ -913,29 +930,29 @@ const App: React.FC = () => {
                     )}
 
                     {updateCheckResult?.hasNewFiles && (
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+                        <div className="flex flex-col xs:flex-row sm:flex-row items-stretch sm:items-center gap-2 flex-1 sm:flex-initial">
                             <button
                                 onClick={handleCheckForUpdates}
                                 disabled={checkingForUpdates}
-                                className="flex-shrink-0 bg-blue-600/50 hover:bg-blue-600 disabled:bg-blue-800 text-white font-bold py-3 px-4 sm:py-2 rounded-lg transition-colors text-sm disabled:cursor-not-allowed touch-manipulation w-full sm:w-auto"
+                                className="flex-1 sm:flex-shrink-0 bg-blue-600/50 hover:bg-blue-600 disabled:bg-blue-800 text-white font-bold py-3 sm:py-2.5 px-4 sm:px-4 rounded-lg transition-all text-sm disabled:cursor-not-allowed touch-manipulation active:scale-95 min-h-[44px] sm:min-h-0"
                                 title="Verificar archivos KMZ nuevos"
                             >
                                 {checkingForUpdates ? '🔍 Verificando...' : '🔄 Verificar Novedades'}
                             </button>
-                            <span className="bg-yellow-500 text-black text-xs px-2 py-1 rounded-full font-bold animate-pulse self-center sm:self-auto">
+                            <span className="bg-yellow-500 text-black text-xs px-3 py-1.5 rounded-full font-bold animate-pulse self-center sm:self-auto text-center min-h-[32px] flex items-center justify-center">
                                 {updateCheckResult.newFiles.length} nuevos
                             </span>
                         </div>
                     )}
                 </div>
 
-                {/* Botón de logout */}
+                {/* Botón de logout - Optimizado para móvil */}
                 <button
                     onClick={handleLogout}
-                    className="flex-shrink-0 bg-red-600/50 hover:bg-red-600 text-white font-bold py-3 px-4 sm:py-2 rounded-lg transition-colors text-sm touch-manipulation w-full sm:w-auto"
+                    className="w-full sm:w-auto self-center sm:self-end bg-red-600/50 hover:bg-red-600 text-white font-bold py-3 sm:py-2.5 px-6 sm:px-4 rounded-lg transition-all text-sm touch-manipulation active:scale-95 min-h-[44px] sm:min-h-0 max-w-xs sm:max-w-none"
                     title="Cerrar sesión"
                 >
-                    🔓 Logout
+                    🔓 Cerrar Sesión
                 </button>
             </div>
         </header>
@@ -1064,6 +1081,7 @@ const App: React.FC = () => {
                 minDate={minDate}
                 maxDate={maxDate}
                 selectedDate={selectedDate}
+                selectedEntry={selectedHistoryEntry}
               />
             )}
 
@@ -1103,31 +1121,31 @@ const App: React.FC = () => {
 
         </main>
       </div>
-       <footer className="w-full max-w-3xl mx-auto text-center mt-12 text-gray-500 text-sm">
+       <footer className="w-full max-w-7xl mx-auto text-center mt-8 sm:mt-12 text-gray-500 text-xs sm:text-sm px-4">
           <p>Powered by pai-b, &copy; Todos los derechos reservados</p>
         </footer>
 
         {history.length > 0 && (
           <>
-            {/* Botón flotante del chatbot - optimizado para móvil */}
+            {/* Botón flotante del chatbot - totalmente optimizado para móvil */}
             <button
               onClick={() => setIsChatbotOpen(true)}
-              className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 text-white p-4 sm:p-5 rounded-full shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 z-30 touch-manipulation ${
+              className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 text-white p-4 sm:p-5 rounded-full shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 z-30 touch-manipulation min-w-[56px] min-h-[56px] sm:min-w-0 sm:min-h-0 ${
                 isChatbotAvailable()
                   ? 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500'
                   : 'bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500'
               }`}
-              aria-label="Open travel assistant"
-              title={isChatbotAvailable() ? "Open Travel Assistant" : "Chatbot limitado - Configurar API key para IA completa"}
+              aria-label="Abrir asistente de viajes"
+              title={isChatbotAvailable() ? "Abrir Asistente de Viajes" : "Chatbot limitado - Configurar API key para IA completa"}
             >
               {isChatbotAvailable() ? <ChatBubbleIcon /> : <span className="text-xl sm:text-lg">🤖</span>}
             </button>
 
-            {/* Botón de habilitar IA - solo si no está disponible */}
+            {/* Botón de habilitar IA - optimizado para móvil */}
             {!isChatbotAvailable() && (
               <button
                 onClick={() => setShowApiKeySetup(true)}
-                className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-4 py-3 sm:px-3 sm:py-2 rounded-lg shadow-xl transition-all duration-200 active:scale-95 text-sm z-30 touch-manipulation"
+                className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-4 py-3 sm:px-3 sm:py-2 rounded-lg shadow-xl transition-all duration-200 active:scale-95 text-sm z-30 touch-manipulation min-h-[44px]"
                 title="Configurar API key de Gemini para habilitar chatbot con IA"
               >
                 <span className="hidden sm:inline">🔑 Habilitar IA</span>
