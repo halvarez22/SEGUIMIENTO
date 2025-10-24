@@ -342,75 +342,94 @@ const App: React.FC = () => {
   const handleFileSelect = useCallback(async (files: File[]) => {
     if (files.length === 0) return;
 
-    setProgress({ current: 0, total: files.length });
+    // Límite máximo de archivos para evitar sobrecarga
+    const MAX_FILES = 50;
+    const filesToProcess = files.slice(0, MAX_FILES);
+
+    if (files.length > MAX_FILES) {
+      alert(`Procesando solo los primeros ${MAX_FILES} archivos de ${files.length} seleccionados para evitar sobrecarga.`);
+    }
+
+    setProgress({ current: 0, total: filesToProcess.length });
     setLoadingState({
       isLoading: true,
       message: isMobile
-        ? `Procesando ${files.length} archivo(s)...`
-        : `Preparando ${files.length} archivo(s) KMZ para carga por lotes...`
+        ? `Procesando ${filesToProcess.length} archivo(s)...`
+        : `Procesando ${filesToProcess.length} archivo(s) KMZ...`
     });
     setError(null);
 
     // Reset paginación cuando se cargan nuevos archivos
     setCurrentPage(1);
 
-    const processingPromises = files.map(async (file) => {
+    // Procesar archivos secuencialmente para evitar sobrecarga
+    const results = [];
+    let processedCount = 0;
+
+    for (const file of filesToProcess) {
       try {
-        // Leer archivo como ArrayBuffer
-        const arrayBuffer = await file.arrayBuffer();
-        const kmzDataSource: KMZDataSource = {
-          fileName: file.name,
-          data: arrayBuffer
-        };
-
-        // Parsear archivo KMZ
-        const kmzData = await parseKMZFile(kmzDataSource);
-
-        // Convertir a formato GeoData
-        const geoDataArray = convertKMZToGeoData(kmzData, kmzDataSource.fileName);
-
-        // After processing, update progress
-        setProgress(prev => {
-          const newCurrent = prev.current + 1;
-          setLoadingState({
-            isLoading: true,
-            message: isMobile
-              ? `Procesando... (${newCurrent} de ${files.length})`
-              : `Procesando lote KMZ... (${newCurrent} de ${files.length})`
-          });
-          return { ...prev, current: newCurrent };
+        setLoadingState({
+          isLoading: true,
+          message: isMobile
+            ? `Procesando... (${processedCount + 1} de ${filesToProcess.length})`
+            : `Procesando KMZ... (${processedCount + 1} de ${filesToProcess.length})`
         });
 
-        return {
-          status: 'fulfilled',
-          value: geoDataArray.map(geoData => ({
+        // Agregar timeout para evitar que se quede colgado
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Timeout processing file')), 30000) // 30 segundos timeout
+        );
+
+        const processingPromise = (async () => {
+          // Leer archivo como ArrayBuffer
+          const arrayBuffer = await file.arrayBuffer();
+          const kmzDataSource: KMZDataSource = {
+            fileName: file.name,
+            data: arrayBuffer
+          };
+
+          // Parsear archivo KMZ
+          const kmzData = await parseKMZFile(kmzDataSource);
+
+          // Convertir a formato GeoData
+          const geoDataArray = convertKMZToGeoData(kmzData, kmzDataSource.fileName);
+
+          return geoDataArray.map(geoData => ({
             id: `${file.name}_${Date.now()}_${Math.random()}`,
             data: geoData,
             timestamp: new Date().toISOString(),
             source: 'kmz' as const
-          })),
+          }));
+        })();
+
+        // Race entre procesamiento y timeout
+        const result = await Promise.race([processingPromise, timeoutPromise]);
+
+        results.push({
+          status: 'fulfilled',
+          value: result,
           fileName: file.name
-        };
+        });
+
       } catch (err) {
-        // Also update progress on failure to not stall the counter
-        setProgress(prev => ({ ...prev, current: prev.current + 1 }));
         const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred.';
-        return {
+        console.error(`Error procesando ${file.name}:`, errorMessage);
+
+        results.push({
           status: 'rejected',
           reason: `Failed to process '${file.name}': ${errorMessage}`,
-        };
+          fileName: file.name
+        });
       }
-    });
 
-    // Update message to show processing has started
-    setLoadingState({
-      isLoading: true,
-      message: isMobile
-        ? `Procesando archivos... (0 de ${files.length})`
-        : `Procesando archivos KMZ por lotes... (0 de ${files.length})`
-    });
+      processedCount++;
+      setProgress({ current: processedCount, total: filesToProcess.length });
 
-    const results = await Promise.all(processingPromises);
+      // Pequeña pausa entre archivos para no sobrecargar
+      if (processedCount < filesToProcess.length) {
+        await new Promise(resolve => setTimeout(resolve, 100)); // 100ms pausa
+      }
+    }
 
     const newEntries: HistoryEntry[] = [];
     const processingErrors: string[] = [];
@@ -473,7 +492,7 @@ const App: React.FC = () => {
 
     if (processingErrors.length > 0) {
       setError(
-        `Procesamiento completado. ${newEntries.length} features procesadas de ${files.length} archivos.\n\nErrores encontrados:\n- ${processingErrors.join('\n- ')}`
+        `Procesamiento completado. ${newEntries.length} features procesadas de ${filesToProcess.length} archivos.\n\nErrores encontrados:\n- ${processingErrors.join('\n- ')}`
       );
     }
 
@@ -822,8 +841,11 @@ const App: React.FC = () => {
   // Update loading message based on progress
   useEffect(() => {
     if (loadingState.isLoading && progress.total > 0) {
-      const newMessage = `Analyzing images... (${progress.current} of ${progress.total})`;
-      // Only update state if the message has actually changed to prevent an infinite loop.
+      const newMessage = isMobile
+        ? `Procesando archivos... (${progress.current} de ${progress.total})`
+        : `Procesando KMZ... (${progress.current} de ${progress.total})`;
+
+      // Only update state if the message has actually changed to prevent loops
       if (loadingState.message !== newMessage) {
         setLoadingState(prevState => ({
           ...prevState,
@@ -831,7 +853,7 @@ const App: React.FC = () => {
         }));
       }
     }
-  }, [progress, loadingState.isLoading, loadingState.message]);
+  }, [progress, loadingState.isLoading, loadingState.message, isMobile]);
 
 
   if (!authChecked) {
@@ -847,15 +869,16 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center p-4 md:p-6 lg:p-8">
-      <div className="w-full max-w-3xl mx-auto">
-        <header className="flex flex-col sm:flex-row justify-between sm:items-center w-full mb-8">
+    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center p-3 sm:p-4 md:p-6 lg:p-8">
+      <div className="w-full max-w-4xl mx-auto">
+        <header className="flex flex-col gap-4 w-full mb-6 sm:mb-8">
+            {/* Título y estado de conexión */}
             <div className="text-center sm:text-left">
-                <div className="flex items-center gap-3 mb-2">
-                    <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-center sm:justify-start gap-3 mb-3">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
                         KMZ Map Viewer
                     </h1>
-                    <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${
+                    <div className={`flex items-center gap-2 px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm font-medium ${
                         isFirebaseAvailable
                             ? 'bg-green-900/50 text-green-300 border border-green-500'
                             : 'bg-yellow-900/50 text-yellow-300 border border-yellow-500'
@@ -863,23 +886,26 @@ const App: React.FC = () => {
                         <div className={`w-2 h-2 rounded-full ${
                             isFirebaseAvailable ? 'bg-green-400' : 'bg-yellow-400'
                         }`}></div>
-                        {isFirebaseAvailable ? 'Conectado' : 'Modo Local'}
+                        <span className="hidden sm:inline">{isFirebaseAvailable ? 'Conectado' : 'Modo Local'}</span>
+                        <span className="sm:hidden">{isFirebaseAvailable ? '🟢' : '🟡'}</span>
                     </div>
                 </div>
-                        <p className="text-base sm:text-lg text-gray-400">
-                            {history.length === 0
-                                ? 'Carga un archivo KMZ desde tu dispositivo para comenzar.'
-                                : `Mostrando ${enrichedFilteredHistory.length} puntos geoespaciales. ${isFirebaseAvailable ? 'Datos sincronizados en la nube.' : 'Modo local activo.'}`
-                            }
-                        </p>
+                <p className="text-sm sm:text-base md:text-lg text-gray-400 px-2">
+                    {history.length === 0
+                        ? 'Carga un archivo KMZ desde tu dispositivo para comenzar.'
+                        : `Mostrando ${enrichedFilteredHistory.length} puntos geoespaciales. ${isFirebaseAvailable ? 'Datos sincronizados en la nube.' : 'Modo local activo.'}`
+                    }
+                </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                <div className="flex flex-col sm:flex-row gap-2">
+
+            {/* Controles principales */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-1">
                     {history.length === 0 && (
                         <button
                             onClick={handleLoadSampleData}
                             disabled={isLoadingSampleData}
-                            className="flex-shrink-0 bg-green-600/50 hover:bg-green-600 disabled:bg-green-800 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm disabled:cursor-not-allowed"
+                            className="flex-shrink-0 bg-green-600/50 hover:bg-green-600 disabled:bg-green-800 text-white font-bold py-3 px-4 sm:py-2 rounded-lg transition-colors text-sm disabled:cursor-not-allowed touch-manipulation"
                             title="Cargar datos de ejemplo KMZ para probar la aplicación"
                         >
                             {isLoadingSampleData ? 'Cargando...' : '📍 Cargar Ejemplos'}
@@ -887,27 +913,29 @@ const App: React.FC = () => {
                     )}
 
                     {updateCheckResult?.hasNewFiles && (
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
                             <button
                                 onClick={handleCheckForUpdates}
                                 disabled={checkingForUpdates}
-                                className="flex-shrink-0 bg-blue-600/50 hover:bg-blue-600 disabled:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm disabled:cursor-not-allowed"
+                                className="flex-shrink-0 bg-blue-600/50 hover:bg-blue-600 disabled:bg-blue-800 text-white font-bold py-3 px-4 sm:py-2 rounded-lg transition-colors text-sm disabled:cursor-not-allowed touch-manipulation w-full sm:w-auto"
                                 title="Verificar archivos KMZ nuevos"
                             >
                                 {checkingForUpdates ? '🔍 Verificando...' : '🔄 Verificar Novedades'}
                             </button>
-                            <span className="bg-yellow-500 text-black text-xs px-2 py-1 rounded-full font-bold animate-pulse">
+                            <span className="bg-yellow-500 text-black text-xs px-2 py-1 rounded-full font-bold animate-pulse self-center sm:self-auto">
                                 {updateCheckResult.newFiles.length} nuevos
                             </span>
                         </div>
                     )}
                 </div>
+
+                {/* Botón de logout */}
                 <button
                     onClick={handleLogout}
-                    className="mt-4 sm:mt-0 flex-shrink-0 bg-red-600/50 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm self-center"
-                    title="Log Out"
+                    className="flex-shrink-0 bg-red-600/50 hover:bg-red-600 text-white font-bold py-3 px-4 sm:py-2 rounded-lg transition-colors text-sm touch-manipulation w-full sm:w-auto"
+                    title="Cerrar sesión"
                 >
-                    Logout
+                    🔓 Logout
                 </button>
             </div>
         </header>
@@ -1081,9 +1109,10 @@ const App: React.FC = () => {
 
         {history.length > 0 && (
           <>
+            {/* Botón flotante del chatbot - optimizado para móvil */}
             <button
               onClick={() => setIsChatbotOpen(true)}
-              className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 z-30 ${
+              className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 text-white p-4 sm:p-5 rounded-full shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 z-30 touch-manipulation ${
                 isChatbotAvailable()
                   ? 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500'
                   : 'bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500'
@@ -1091,18 +1120,22 @@ const App: React.FC = () => {
               aria-label="Open travel assistant"
               title={isChatbotAvailable() ? "Open Travel Assistant" : "Chatbot limitado - Configurar API key para IA completa"}
             >
-              {isChatbotAvailable() ? <ChatBubbleIcon /> : <span className="text-lg">🤖</span>}
+              {isChatbotAvailable() ? <ChatBubbleIcon /> : <span className="text-xl sm:text-lg">🤖</span>}
             </button>
 
+            {/* Botón de habilitar IA - solo si no está disponible */}
             {!isChatbotAvailable() && (
               <button
                 onClick={() => setShowApiKeySetup(true)}
-                className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg shadow-lg transition-colors text-sm z-30"
+                className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-4 py-3 sm:px-3 sm:py-2 rounded-lg shadow-xl transition-all duration-200 active:scale-95 text-sm z-30 touch-manipulation"
                 title="Configurar API key de Gemini para habilitar chatbot con IA"
               >
-                🔑 Habilitar IA
+                <span className="hidden sm:inline">🔑 Habilitar IA</span>
+                <span className="sm:hidden">🔑 IA</span>
               </button>
             )}
+
+            {/* Chatbot optimizado para móvil */}
             <Chatbot
               isOpen={isChatbotOpen}
               onClose={() => setIsChatbotOpen(false)}

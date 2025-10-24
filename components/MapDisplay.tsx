@@ -568,5 +568,5 @@ export const MapDisplay: React.FC<MapDisplayProps> = ({ entries, selectedDate })
     }
   }, [entries, geocodedAddresses]);
 
-  return <div ref={mapContainerRef} className="z-0 h-[300px] md:h-[400px] w-full" />;
+  return <div ref={mapContainerRef} className="z-0 h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] w-full rounded-lg overflow-hidden" />;
 };

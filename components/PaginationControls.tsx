@@ -99,31 +99,35 @@ export const PaginationControls: React.FC<PaginationControlsProps> = ({
   };
 
   return (
-    <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 bg-gray-800 rounded-lg">
+    <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-lg">
       {/* Información de resultados */}
-      <div className="text-sm text-gray-300 text-center sm:text-left">
-        Mostrando <span className="font-semibold text-white">{startItem}-{endItem}</span> de{' '}
-        <span className="font-semibold text-white">{totalItems}</span> resultados
-        {isMobile && (
-          <span className="block text-xs text-gray-400 mt-1">
-            ({itemsPerPage} por página en móvil)
+      <div className="text-xs sm:text-sm text-gray-300 text-center sm:text-left w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+          <span>
+            Mostrando <span className="font-semibold text-white">{startItem}-{endItem}</span> de{' '}
+            <span className="font-semibold text-white">{totalItems}</span>
           </span>
-        )}
+          {isMobile && (
+            <span className="text-xs text-gray-400">
+              ({itemsPerPage} por página)
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Controles de navegación */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 w-full sm:w-auto justify-center">
         {/* Botón Anterior */}
         <button
           onClick={onPrevPage}
           disabled={currentPage === 1}
-          className={`px-3 py-2 rounded transition-colors text-sm ${
+          className={`px-4 py-2.5 sm:px-3 sm:py-2 rounded-lg transition-all text-sm font-medium touch-manipulation active:scale-95 ${
             currentPage === 1
               ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-              : 'bg-gray-600 hover:bg-gray-700 text-white'
+              : 'bg-gray-600 hover:bg-gray-700 active:bg-gray-800 text-white shadow-md'
           }`}
         >
-          {isMobile ? '←' : 'Anterior'}
+          {isMobile ? '⬅️' : 'Anterior'}
         </button>
 
         {/* Números de página */}
@@ -140,13 +144,13 @@ export const PaginationControls: React.FC<PaginationControlsProps> = ({
         <button
           onClick={onNextPage}
           disabled={currentPage === totalPages}
-          className={`px-3 py-2 rounded transition-colors text-sm ${
+          className={`px-4 py-2.5 sm:px-3 sm:py-2 rounded-lg transition-all text-sm font-medium touch-manipulation active:scale-95 ${
             currentPage === totalPages
               ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-              : 'bg-gray-600 hover:bg-gray-700 text-white'
+              : 'bg-gray-600 hover:bg-gray-700 active:bg-gray-800 text-white shadow-md'
           }`}
         >
-          {isMobile ? '→' : 'Siguiente'}
+          {isMobile ? '➡️' : 'Siguiente'}
         </button>
       </div>
     </div>

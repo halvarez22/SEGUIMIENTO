@@ -108,8 +108,8 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, history }) =>
         onClick={onClose}
         aria-hidden="true"
       ></div>
-      <div className="fixed bottom-0 right-0 sm:bottom-4 sm:right-4 w-full h-full sm:h-[70vh] sm:max-h-[600px] max-w-lg bg-gray-800 rounded-t-lg sm:rounded-lg shadow-2xl z-50 flex flex-col border border-gray-700 animate-slide-in-up">
-        <header className="flex items-center justify-between p-4 bg-gray-900/70 border-b border-gray-700 rounded-t-lg sm:rounded-t-lg flex-shrink-0">
+      <div className="fixed bottom-0 right-0 sm:bottom-4 sm:right-4 w-full h-full sm:h-[75vh] sm:max-h-[650px] max-w-lg bg-gray-800 rounded-t-2xl sm:rounded-2xl shadow-2xl z-50 flex flex-col border border-gray-700 animate-slide-in-up">
+        <header className="flex items-center justify-between p-4 sm:p-5 bg-gray-900/70 border-b border-gray-700 rounded-t-2xl sm:rounded-t-2xl flex-shrink-0">
           <div className="flex items-center gap-2">
             <h2 className="text-lg font-bold text-white">Asistente de Viajes</h2>
             {!isChatbotAvailable() && (
@@ -156,21 +156,32 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, history }) =>
           <div ref={messagesEndRef} />
         </main>
 
-        <footer className="p-4 border-t border-gray-700 bg-gray-800 rounded-b-lg flex-shrink-0">
-          <form onSubmit={handleSendMessage} className="flex items-center space-x-2">
-            <input
-              type="text"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Escribe tu pregunta..."
-              disabled={isLoading}
-              className="w-full bg-gray-900/50 border border-gray-600 rounded-full py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              autoFocus
-            />
+        <footer className="p-3 sm:p-4 border-t border-gray-700 bg-gray-800 rounded-b-2xl sm:rounded-b-2xl flex-shrink-0">
+          <form onSubmit={handleSendMessage} className="flex items-end gap-2 sm:gap-3">
+            <div className="flex-1 relative">
+              <textarea
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder="Escribe tu pregunta sobre ubicaciones..."
+                disabled={isLoading}
+                className="w-full bg-gray-900/50 border border-gray-600 rounded-2xl py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none text-sm sm:text-base min-h-[44px] max-h-32 touch-manipulation"
+                rows={1}
+                style={{
+                  height: 'auto',
+                  minHeight: '44px'
+                }}
+                onInput={(e) => {
+                  const target = e.target as HTMLTextAreaElement;
+                  target.style.height = 'auto';
+                  target.style.height = Math.min(target.scrollHeight, 128) + 'px';
+                }}
+                autoFocus
+              />
+            </div>
             <button
               type="submit"
               disabled={isLoading || !inputValue.trim()}
-              className="p-2.5 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed transition-all"
+              className="flex-shrink-0 p-3 sm:p-2.5 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed transition-all active:scale-95 touch-manipulation"
               aria-label="Send message"
             >
               <SendIcon />
