@@ -25,7 +25,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({
  }) => {
 
   return (
-    <div className="bg-gray-800 shadow-2xl rounded-lg p-4 sm:p-6 animate-fade-in border border-gray-700">
+    <div data-result-card className="bg-gray-800 shadow-2xl rounded-lg p-4 sm:p-6 animate-fade-in border border-gray-700">
       <h2 className="text-2xl font-bold text-white mb-6">Extraction Results</h2>
       
       {showFilter && (

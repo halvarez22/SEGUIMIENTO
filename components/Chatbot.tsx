@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { HistoryEntry } from '../types';
 import { getChatbotResponse } from '../services/geminiService';
-import { SendIcon, CloseIcon } from './icons';
+import { SendIcon, CloseIcon, TrashIcon } from './icons';
 
 interface ChatbotProps {
   isOpen: boolean;
@@ -30,6 +30,25 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, history }) =>
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Limpiar conversación cuando se cierra el chatbot
+  useEffect(() => {
+    if (!isOpen) {
+      // Resetear mensajes cuando se cierra
+      setMessages([
+        { sender: 'bot', text: '¡Hola! Soy tu asistente de viajes. Pregúntame sobre tu historial de ubicaciones.' },
+      ]);
+      setInputValue('');
+    }
+  }, [isOpen]);
+
+  // Función para limpiar la conversación manualmente
+  const handleClearConversation = () => {
+    setMessages([
+      { sender: 'bot', text: '¡Hola! Soy tu asistente de viajes. Pregúntame sobre tu historial de ubicaciones.' },
+    ]);
+    setInputValue('');
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -74,9 +93,21 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, history }) =>
       <div className="fixed bottom-0 right-0 sm:bottom-4 sm:right-4 w-full h-full sm:h-[70vh] sm:max-h-[600px] max-w-lg bg-gray-800 rounded-t-lg sm:rounded-lg shadow-2xl z-50 flex flex-col border border-gray-700 animate-slide-in-up">
         <header className="flex items-center justify-between p-4 bg-gray-900/70 border-b border-gray-700 rounded-t-lg sm:rounded-t-lg flex-shrink-0">
           <h2 className="text-lg font-bold text-white">Asistente de Viajes</h2>
-          <button onClick={onClose} className="p-1 text-gray-400 hover:text-white transition-colors" aria-label="Close chat">
-            <CloseIcon />
-          </button>
+          <div className="flex items-center space-x-2">
+            {messages.length > 1 && (
+              <button 
+                onClick={handleClearConversation} 
+                className="p-1.5 text-gray-400 hover:text-red-400 transition-colors rounded-md hover:bg-red-500/10" 
+                aria-label="Limpiar conversación"
+                title="Limpiar conversación"
+              >
+                <TrashIcon />
+              </button>
+            )}
+            <button onClick={onClose} className="p-1 text-gray-400 hover:text-white transition-colors" aria-label="Close chat">
+              <CloseIcon />
+            </button>
+          </div>
         </header>
 
         <main className="flex-1 overflow-y-auto p-4 space-y-4">

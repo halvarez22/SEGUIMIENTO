@@ -5,10 +5,23 @@ import { firestoreService } from './firebase/firestore';
 import { ImageUploader } from './components/ImageUploader';
 import { ResultCard } from './components/ResultCard';
 import { HistoryList } from './components/HistoryList';
+import { MostVisitedPlaces } from './components/MostVisitedPlaces';
 import { Spinner, ErrorIcon, ChatBubbleIcon } from './components/icons';
 import { Login } from './components/Login';
 import { resizeImage } from './utils/imageUtils';
+import { getMostVisitedPlaces } from './utils/locationUtils';
+import { parseKMZFile, isKMZFile } from './utils/kmzParser';
 import { Chatbot } from './components/Chatbot';
+
+// Exponer funciones de análisis en la consola para depuración
+if (typeof window !== 'undefined') {
+  (window as any).analyzeFirestoreData = async () => {
+    await firestoreService.analyzeStoredData();
+  };
+  (window as any).compareWithKMZ = async () => {
+    await firestoreService.compareWithKMZ();
+  };
+}
 
 const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -83,6 +96,34 @@ const App: React.FC = () => {
   const minDate = sortedUniqueDates[0];
   const maxDate = sortedUniqueDates[sortedUniqueDates.length - 1];
 
+  // Debug: Mostrar información de fechas en consola
+  useEffect(() => {
+    if (history.length > 0) {
+      console.log('=== INFORMACIÓN DE FECHAS EN LA BASE DE DATOS ===');
+      console.log(`Total de entradas en historial: ${history.length}`);
+      console.log(`Fechas únicas encontradas: ${sortedUniqueDates.length}`);
+      console.log(`Rango de fechas disponible:`);
+      console.log(`  - Fecha mínima: ${minDate || 'No disponible'}`);
+      console.log(`  - Fecha máxima: ${maxDate || 'No disponible'}`);
+      console.log(`Todas las fechas únicas:`, sortedUniqueDates);
+      
+      // Mostrar distribución de fechas
+      const dateCounts = new Map<string, number>();
+      history.forEach(entry => {
+        if (entry.data.date && /^\d{4}-\d{2}-\d{2}$/.test(entry.data.date)) {
+          dateCounts.set(entry.data.date, (dateCounts.get(entry.data.date) || 0) + 1);
+        }
+      });
+      console.log('Distribución de visitas por fecha:');
+      Array.from(dateCounts.entries())
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .forEach(([date, count]) => {
+          console.log(`  ${date}: ${count} visita(s)`);
+        });
+      console.log('================================================');
+    }
+  }, [history, sortedUniqueDates, minDate, maxDate]);
+
   const filteredHistory = useMemo(() => {
     const { start, end } = dateRange;
 
@@ -119,37 +160,126 @@ const App: React.FC = () => {
     history.some(entry => entry.data.latitude !== null && entry.data.longitude !== null), 
   [history]);
 
+  // Rango de fechas para lugares más visitados (separado del filtro del historial)
+  const [mostVisitedDateRange, setMostVisitedDateRange] = useState<{ start: string | null; end: string | null }>({ start: null, end: null });
+
+  // Filtrar historial para lugares más visitados según el rango de fechas seleccionado
+  const filteredHistoryForMostVisited = useMemo(() => {
+    const { start, end } = mostVisitedDateRange;
+
+    if (!start && !end) {
+      return history; // Si no hay filtro, usar todo el historial
+    }
+    
+    const startDate = start ? new Date(`${start}T00:00:00`) : null;
+    const endDate = end ? new Date(`${end}T00:00:00`) : null;
+
+    if (endDate) {
+      endDate.setHours(23, 59, 59, 999);
+    }
+
+    return history.filter(entry => {
+      if (!entry.data.date || !/^\d{4}-\d{2}-\d{2}$/.test(entry.data.date)) return false;
+      const entryDate = new Date(`${entry.data.date}T00:00:00`);
+      
+      if (isNaN(entryDate.getTime())) return false;
+
+      let inRange = true;
+      if (startDate && entryDate < startDate) {
+        inRange = false;
+      }
+      if (endDate && entryDate > endDate) {
+        inRange = false;
+      }
+      return inRange;
+    });
+  }, [history, mostVisitedDateRange]);
+
+  const mostVisitedPlaces = useMemo(() => {
+    // Excluir los top 2 lugares más visitados (casa/trabajo) y lugares dentro de 1km de ellos
+    // Usar el historial filtrado por el rango de fechas seleccionado
+    // Parámetros: limit=3, distanceThreshold=0.1km, excludeHome=true, geofenceRadius=1.0km, excludeTopN=2
+    return getMostVisitedPlaces(filteredHistoryForMostVisited, 3, 0.1, true, 1.0, 2);
+  }, [filteredHistoryForMostVisited]);
+
   const handleFileSelect = useCallback(async (files: File[]) => {
     if (files.length === 0) return;
 
+    // Contar archivos KMZ vs imágenes
+    const kmzFiles = files.filter(f => isKMZFile(f));
+    const imageFiles = files.filter(f => !isKMZFile(f));
+    
     setProgress({ current: 0, total: files.length });
-    setLoadingState({ isLoading: true, message: `Preparing ${files.length} image(s)...` });
+    setLoadingState({ isLoading: true, message: `Preparando ${files.length} archivo(s)...` });
     setError(null);
 
     const analysisPromises = files.map(async (file) => {
       try {
-        const { base64Data, mimeType } = await resizeImage(file, 1024);
-        
-        // This is a good place to update the preview if needed, e.g., for the first image
-        if (files.indexOf(file) === 0) {
-           setImagePreview(`data:${mimeType};base64,${base64Data}`);
-        }
-
-        const data = await analyzeImageForLocation({ mimeType, data: base64Data });
-        
-        // After analysis, update progress
-        setProgress(prev => ({ ...prev, current: prev.current + 1 }));
-
-        return {
-          status: 'fulfilled',
-          value: {
-            id: new Date().toISOString() + Math.random(),
+        // Verificar si es un archivo KMZ/KML
+        if (isKMZFile(file)) {
+          console.log('📦 Procesando archivo KMZ/KML:', file.name);
+          const fileIndex = files.indexOf(file) + 1;
+          setLoadingState({ isLoading: true, message: `Extrayendo datos del KMZ (${fileIndex}/${files.length}): ${file.name}...` });
+          
+          // Parsear el archivo KMZ y extraer todas las ubicaciones
+          const extractedDataArray = await parseKMZFile(file);
+          
+          console.log(`✅ Extraídas ${extractedDataArray.length} ubicaciones del archivo KMZ`);
+          
+          // Analizar fechas extraídas
+          const withDate = extractedDataArray.filter(d => d.date && d.date.trim() !== '');
+          const withoutDate = extractedDataArray.filter(d => !d.date || d.date.trim() === '');
+          console.log(`📅 Fechas extraídas: ${withDate.length} con fecha, ${withoutDate.length} sin fecha`);
+          
+          if (withDate.length > 0) {
+            const uniqueDates = [...new Set(withDate.map(d => d.date))].sort();
+            console.log(`📅 Fechas únicas encontradas: ${uniqueDates.length}`);
+            if (uniqueDates.length <= 10) {
+              console.log(`📅 Fechas: ${uniqueDates.join(', ')}`);
+            }
+          }
+          
+          // Crear una entrada por cada ubicación extraída
+          const entries = extractedDataArray.map((data, index) => ({
+            id: new Date().toISOString() + Math.random() + index,
             data: data,
-            imagePreview: `data:${mimeType};base64,${base64Data}`,
+            imagePreview: '', // Los KMZ no tienen preview de imagen
             timestamp: new Date().toISOString(),
-          },
-          fileName: file.name
-        };
+          }));
+          
+          // Actualizar progreso
+          setProgress(prev => ({ ...prev, current: prev.current + 1 }));
+          
+          return {
+            status: 'fulfilled',
+            value: entries, // Retornar múltiples entradas
+            fileName: file.name
+          };
+        } else {
+          // Procesar como imagen
+          const { base64Data, mimeType } = await resizeImage(file, 1024);
+          
+          // This is a good place to update the preview if needed, e.g., for the first image
+          if (files.indexOf(file) === 0) {
+             setImagePreview(`data:${mimeType};base64,${base64Data}`);
+          }
+
+          const data = await analyzeImageForLocation({ mimeType, data: base64Data });
+          
+          // After analysis, update progress
+          setProgress(prev => ({ ...prev, current: prev.current + 1 }));
+
+          return {
+            status: 'fulfilled',
+            value: [{
+              id: new Date().toISOString() + Math.random(),
+              data: data,
+              imagePreview: `data:${mimeType};base64,${base64Data}`,
+              timestamp: new Date().toISOString(),
+            }], // Retornar como array para consistencia
+            fileName: file.name
+          };
+        }
       } catch (err) {
         // Also update progress on failure to not stall the counter
         setProgress(prev => ({ ...prev, current: prev.current + 1 }));
@@ -161,8 +291,14 @@ const App: React.FC = () => {
       }
     });
 
-    // Update message to show analysis has started
-    setLoadingState({ isLoading: true, message: `Analyzing images... (0 of ${files.length})` });
+    // Update message to show processing has started
+    if (kmzFiles.length > 0 && imageFiles.length > 0) {
+      setLoadingState({ isLoading: true, message: `Procesando ${kmzFiles.length} KMZ y ${imageFiles.length} imagen(es)...` });
+    } else if (kmzFiles.length > 0) {
+      setLoadingState({ isLoading: true, message: `Extrayendo datos de ${kmzFiles.length} archivo(s) KMZ...` });
+    } else {
+      setLoadingState({ isLoading: true, message: `Analizando ${imageFiles.length} imagen(es)...` });
+    }
 
     const results = await Promise.all(analysisPromises);
     
@@ -171,7 +307,13 @@ const App: React.FC = () => {
 
     results.forEach(result => {
         if(result.status === 'fulfilled') {
-            newEntries.push(result.value);
+            // result.value ahora es un array de entradas
+            if (Array.isArray(result.value)) {
+              newEntries.push(...result.value);
+            } else {
+              // Compatibilidad con formato anterior
+              newEntries.push(result.value);
+            }
         } else {
             processingErrors.push(result.reason);
         }
@@ -338,13 +480,42 @@ const App: React.FC = () => {
                     Upload image(s) to magically extract date, time, and location.
                 </p>
             </div>
-            <button 
-                onClick={handleLogout}
-                className="mt-4 sm:mt-0 sm:ml-6 flex-shrink-0 bg-red-600/50 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm self-center"
-                title="Log Out"
-            >
-                Logout
-            </button>
+            <div className="mt-4 sm:mt-0 sm:ml-6 flex flex-col sm:flex-row gap-2 flex-shrink-0 self-center">
+              {/* Herramientas de análisis ocultas (disponibles en consola) */}
+              {false && (
+                <div className="flex flex-col gap-2">
+                  <button 
+                      onClick={async () => {
+                        console.log('🔍 Iniciando análisis de datos en Firestore...');
+                        console.log('📝 Abre la consola del navegador (F12) para ver los resultados');
+                        await firestoreService.analyzeStoredData();
+                      }}
+                      className="bg-blue-600/50 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm"
+                      title="Analizar datos en Firestore - Abre la consola (F12) para ver resultados"
+                  >
+                      🔍 Analizar BD
+                  </button>
+                  <button 
+                      onClick={async () => {
+                        console.log('🔍 Comparando Firebase con GPS.kmz...');
+                        console.log('📝 Abre la consola del navegador (F12) para ver los resultados');
+                        await firestoreService.compareWithKMZ();
+                      }}
+                      className="bg-purple-600/50 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm"
+                      title="Comparar Firebase con GPS.kmz - Abre la consola (F12) para ver resultados"
+                  >
+                      📊 Comparar KMZ
+                  </button>
+                </div>
+              )}
+              <button 
+                  onClick={handleLogout}
+                  className="bg-red-600/50 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm"
+                  title="Log Out"
+              >
+                  Logout
+              </button>
+            </div>
         </header>
 
         <main className="relative">
@@ -388,6 +559,24 @@ const App: React.FC = () => {
               </div>
             )}
           </div>
+
+          {mostVisitedPlaces.length > 0 && (
+            <section className="mt-12 w-full">
+              <MostVisitedPlaces 
+                places={mostVisitedPlaces}
+                minDate={minDate}
+                maxDate={maxDate}
+                dateRange={mostVisitedDateRange}
+                onDateRangeChange={setMostVisitedDateRange}
+                onPlaceClick={(place) => {
+                  // Al hacer clic en un lugar, mostrar la primera entrada de ese lugar
+                  if (place.entries.length > 0) {
+                    handleSelectHistory(place.entries[0]);
+                  }
+                }}
+              />
+            </section>
+          )}
           
           {history.length > 0 && (
             <section className="mt-12 w-full">
@@ -396,6 +585,25 @@ const App: React.FC = () => {
                 onSelect={handleSelectHistory}
                 onDelete={handleDeleteHistory}
                 onClear={handleClearHistory}
+                onDateClick={(date) => {
+                  // Filtrar historial por fecha seleccionada
+                  const entriesForDate = history.filter(entry => entry.data.date === date);
+                  if (entriesForDate.length > 0) {
+                    // Establecer el rango de fechas para mostrar solo ese día en el mapa
+                    setDateRange({ start: date, end: date });
+                    
+                    // Hacer scroll al mapa de Extraction Results
+                    setTimeout(() => {
+                      const resultCard = document.querySelector('[data-result-card]');
+                      if (resultCard) {
+                        resultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }
+                    }, 100);
+                    
+                    // Seleccionar la primera entrada de ese día para mostrar detalles
+                    handleSelectHistory(entriesForDate[0]);
+                  }
+                }}
               />
             </section>
           )}

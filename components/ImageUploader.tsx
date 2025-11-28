@@ -44,7 +44,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onFileSelect, imag
           ref={fileInputRef}
           onChange={handleFileChange}
           className="hidden"
-          accept="image/png, image/jpeg, image/webp"
+          accept="image/png, image/jpeg, image/webp, .kmz, .kml, application/vnd.google-earth.kmz, application/vnd.google-earth.kml+xml"
           disabled={isLoading}
           multiple
         />
@@ -55,8 +55,8 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onFileSelect, imag
             <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-10 w-10 sm:h-12 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <p className="mt-2 text-sm sm:text-base">Click to upload image(s)</p>
-            <p className="text-xs">PNG, JPG, WEBP</p>
+            <p className="mt-2 text-sm sm:text-base">Click to upload image(s) or KMZ/KML file(s)</p>
+            <p className="text-xs">PNG, JPG, WEBP, KMZ, KML</p>
           </div>
         )}
 
@@ -72,7 +72,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onFileSelect, imag
         disabled={isLoading}
         className="mt-4 w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
       >
-        {isLoading ? 'Processing...' : imagePreview ? 'Upload More Images' : 'Select Image(s)'}
+        {isLoading ? 'Procesando...' : imagePreview ? 'Subir Más Archivos' : 'Seleccionar Archivo(s)'}
       </button>
     </div>
   );

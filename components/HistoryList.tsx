@@ -1,29 +1,87 @@
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import type { HistoryEntry } from '../types';
-import { TrashIcon, SearchIcon } from './icons';
+import { TrashIcon, SearchIcon, MapPinIcon } from './icons';
 
 interface HistoryListProps {
   history: HistoryEntry[];
   onSelect: (entry: HistoryEntry) => void;
   onDelete: (id: string) => void;
   onClear: () => void;
+  onDateClick?: (date: string) => void;
 }
 
-export const HistoryList: React.FC<HistoryListProps> = ({ history, onSelect, onDelete, onClear }) => {
+export const HistoryList: React.FC<HistoryListProps> = ({ history, onSelect, onDelete, onClear, onDateClick }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredHistory = useMemo(() => {
+  // Agrupar historial por fecha
+  const historyByDate = useMemo(() => {
+    const grouped: { [date: string]: HistoryEntry[] } = {};
+    
+    history.forEach(entry => {
+      const date = entry.data.date || 'Sin fecha';
+      if (!grouped[date]) {
+        grouped[date] = [];
+      }
+      grouped[date].push(entry);
+    });
+    
+    // Ordenar fechas de más reciente a más antigua
+    const sortedDates = Object.keys(grouped).sort((a, b) => {
+      if (a === 'Sin fecha') return 1;
+      if (b === 'Sin fecha') return -1;
+      return new Date(b).getTime() - new Date(a).getTime();
+    });
+    
+    return { grouped, sortedDates };
+  }, [history]);
+
+  // Filtrar fechas por término de búsqueda
+  const filteredDates = useMemo(() => {
     if (!searchTerm) {
-      return history;
+      return historyByDate.sortedDates;
     }
     const lowercasedTerm = searchTerm.toLowerCase();
-    return history.filter(entry => 
-      entry.data.location?.toLowerCase().includes(lowercasedTerm) ||
-      entry.data.date?.toLowerCase().includes(lowercasedTerm) ||
-      entry.data.time?.toLowerCase().includes(lowercasedTerm)
-    );
-  }, [history, searchTerm]);
+    return historyByDate.sortedDates.filter(date => {
+      const entries = historyByDate.grouped[date];
+      return entries.some(entry => 
+        entry.data.location?.toLowerCase().includes(lowercasedTerm) ||
+        entry.data.date?.toLowerCase().includes(lowercasedTerm) ||
+        entry.data.time?.toLowerCase().includes(lowercasedTerm)
+      );
+    });
+  }, [historyByDate, searchTerm]);
+
+  // Formatear fecha para mostrar
+  const formatDateDisplay = (dateStr: string): string => {
+    if (dateStr === 'Sin fecha') return dateStr;
+    try {
+      const date = new Date(dateStr + 'T00:00:00');
+      const day = date.getDate();
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const dayName = dayNames[date.getDay()];
+      return `${dayName}, ${day}/${month}/${year}`;
+    } catch {
+      return dateStr;
+    }
+  };
+
+  // Obtener rango de horarios para un día
+  const getTimeRange = (entries: HistoryEntry[]): string => {
+    const times = entries
+      .map(e => e.data.time)
+      .filter(t => t && /^\d{2}:\d{2}$/.test(t))
+      .sort();
+    
+    if (times.length === 0) return '';
+    if (times.length === 1) return times[0];
+    
+    const min = times[0];
+    const max = times[times.length - 1];
+    return min === max ? min : `${min} a ${max}`;
+  };
 
   return (
     <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 sm:p-6">
@@ -56,43 +114,66 @@ export const HistoryList: React.FC<HistoryListProps> = ({ history, onSelect, onD
         </div>
       )}
      
-      {filteredHistory.length === 0 ? (
+      {filteredDates.length === 0 ? (
          <p className="text-center text-gray-400 py-4">
            {history.length === 0 ? 'No history yet. Analyze an image to get started.' : 'No matching history found.'}
          </p>
       ) : (
-        <ul className="space-y-3">
-          {filteredHistory.map(entry => (
-            <li 
-              key={entry.id} 
-              className="bg-gray-800 p-2 sm:p-3 rounded-lg flex items-center justify-between shadow-lg border border-gray-700/50 hover:border-blue-500 transition-colors group"
-              title={`Analyzed on: ${new Date(entry.timestamp).toLocaleString()}`}
-            >
-              <div 
-                className="flex items-center space-x-4 cursor-pointer flex-grow min-w-0" 
-                onClick={() => onSelect(entry)}
+        <ul className="space-y-2">
+          {filteredDates.map(date => {
+            const entries = historyByDate.grouped[date];
+            const entryCount = entries.length;
+            const timeRange = getTimeRange(entries);
+            
+            return (
+              <li 
+                key={date}
+                className="bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-700/50 hover:border-blue-500 transition-all cursor-pointer group"
+                onClick={() => {
+                  if (onDateClick) {
+                    onDateClick(date);
+                  }
+                }}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && onSelect(entry)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && onDateClick) {
+                    onDateClick(date);
+                  }
+                }}
               >
-                <img src={entry.imagePreview} alt="History thumbnail" className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md bg-gray-700 flex-shrink-0" />
-                <div className="overflow-hidden">
-                  <p className="text-white font-semibold truncate group-hover:text-blue-400 transition-colors">{entry.data.location || 'Unknown Location'}</p>
-                  <p className="text-gray-400 text-sm">{entry.data.date || 'Unknown Date'}</p>
-                  <p className="text-gray-500 text-xs mt-1">
-                    {new Date(entry.timestamp).toLocaleString()}
-                  </p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4 flex-grow min-w-0">
+                    <div className="w-12 h-12 rounded-md bg-blue-600/20 flex-shrink-0 flex items-center justify-center border border-blue-500/30">
+                      <MapPinIcon className="text-blue-400" />
+                    </div>
+                    <div className="overflow-hidden flex-grow">
+                      <p className="text-white font-semibold text-lg group-hover:text-blue-400 transition-colors">
+                        {formatDateDisplay(date)}
+                      </p>
+                      <div className="flex items-center space-x-3 mt-1">
+                        <p className="text-gray-400 text-sm">
+                          <span className="font-semibold text-blue-400">{entryCount}</span>
+                          {' '}
+                          {entryCount === 1 ? 'punto' : 'puntos'}
+                        </p>
+                        {timeRange && (
+                          <p className="text-gray-500 text-sm">
+                            {timeRange}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex-shrink-0 ml-4">
+                    <span className="text-gray-500 group-hover:text-blue-400 transition-colors text-sm font-medium">
+                      Ver en mapa →
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <button
-                onClick={(e) => { e.stopPropagation(); onDelete(entry.id); }}
-                className="ml-4 p-2 text-gray-500 hover:text-red-400 hover:bg-red-500/10 rounded-full transition-all flex-shrink-0"
-                aria-label="Delete history item"
-              >
-                <TrashIcon />
-              </button>
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>
