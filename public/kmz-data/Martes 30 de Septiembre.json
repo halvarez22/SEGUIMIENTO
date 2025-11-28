@@ -1,0 +1,183 @@
+{
+  "fileName": "Martes 30 de Septiembre.kmz",
+  "features": [
+    {
+      "id": "Martes 30 de Septiembre.kmz_0",
+      "name": "1 - 6:56 a 7:08",
+      "description": "",
+      "date": "",
+      "time": "06:56",
+      "location": "1 - 6:56 a 7:08",
+      "latitude": 21.1660758805717,
+      "longitude": -101.7033422665256,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7033422665256,
+          21.1660758805717,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 6:56 a 7:08",
+        "visibility": false,
+        "styleUrl": "#msn_A3",
+        "label-opacity": 1,
+        "label-color": "#005500",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#55ff00",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/A.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Martes 30 de Septiembre.kmz_1",
+      "name": "2 - 10:00",
+      "description": "",
+      "date": "",
+      "time": "10:00",
+      "location": "2 - 10:00",
+      "latitude": 21.1634728142979,
+      "longitude": -101.7030648265791,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7030648265791,
+          21.1634728142979,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 10:00",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle4",
+        "label-opacity": 1,
+        "label-color": "#005500",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#005500",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Martes 30 de Septiembre.kmz_2",
+      "name": "3 - 16:54",
+      "description": "",
+      "date": "",
+      "time": "16:54",
+      "location": "3 - 16:54",
+      "latitude": 21.1520195379278,
+      "longitude": -101.6890158907571,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6890158907571,
+          21.1520195379278,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 16:54",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle4",
+        "label-opacity": 1,
+        "label-color": "#005500",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#005500",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Martes 30 de Septiembre.kmz_3",
+      "name": "4 - 17:00 a 18:06",
+      "description": "",
+      "date": "",
+      "time": "17:00",
+      "location": "4 - 17:00 a 18:06",
+      "latitude": 21.14952761359912,
+      "longitude": -101.6897585069595,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6897585069595,
+          21.14952761359912,
+          0
+        ]
+      },
+      "properties": {
+        "name": "4 - 17:00 a 18:06",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle4",
+        "label-opacity": 1,
+        "label-color": "#005500",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#005500",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Martes 30 de Septiembre.kmz_4",
+      "name": "5 - 18:16",
+      "description": "",
+      "date": "",
+      "time": "18:16",
+      "location": "5 - 18:16",
+      "latitude": 21.15439143494404,
+      "longitude": -101.6886456550868,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6886456550868,
+          21.15439143494404,
+          0
+        ]
+      },
+      "properties": {
+        "name": "5 - 18:16",
+        "visibility": false,
+        "styleUrl": "#msn_Z5",
+        "label-opacity": 1,
+        "label-color": "#005500",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ff0000",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/Z.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 5,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

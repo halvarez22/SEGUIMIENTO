@@ -1,0 +1,617 @@
+{
+  "fileName": "Miércoles 1 de Octubre.kmz",
+  "features": [
+    {
+      "id": "Miércoles 1 de Octubre.kmz_0",
+      "name": "1 - 11:40",
+      "description": "",
+      "date": "",
+      "time": "11:40",
+      "location": "1 - 11:40",
+      "latitude": 21.1647404035435,
+      "longitude": -101.6956053416886,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6956053416886,
+          21.1647404035435,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 11:40",
+        "visibility": false,
+        "styleUrl": "#msn_A30",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#55ff00",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/A.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_1",
+      "name": "2 - 11:55 a 11:57",
+      "description": "",
+      "date": "",
+      "time": "11:55",
+      "location": "2 - 11:55 a 11:57",
+      "latitude": 21.098189822029,
+      "longitude": -101.6349914677321,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6349914677321,
+          21.098189822029,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 11:55 a 11:57",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_2",
+      "name": "3 - 12:11",
+      "description": "",
+      "date": "",
+      "time": "12:11",
+      "location": "3 - 12:11",
+      "latitude": 21.07961400000001,
+      "longitude": -101.639122,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.639122,
+          21.07961400000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 12:11",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_3",
+      "name": "4 - 12:28",
+      "description": "",
+      "date": "",
+      "time": "12:28",
+      "location": "4 - 12:28",
+      "latitude": 21.08398759774312,
+      "longitude": -101.6432626978632,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6432626978632,
+          21.08398759774312,
+          0
+        ]
+      },
+      "properties": {
+        "name": "4 - 12:28",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_4",
+      "name": "5 - 12:32",
+      "description": "",
+      "date": "",
+      "time": "12:32",
+      "location": "5 - 12:32",
+      "latitude": 21.1049063,
+      "longitude": -101.6401121,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6401121,
+          21.1049063,
+          0
+        ]
+      },
+      "properties": {
+        "name": "5 - 12:32",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_5",
+      "name": "6 - 13:58",
+      "description": "",
+      "date": "",
+      "time": "13:58",
+      "location": "6 - 13:58",
+      "latitude": 21.16510025688426,
+      "longitude": -101.6933656618478,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6933656618478,
+          21.16510025688426,
+          0
+        ]
+      },
+      "properties": {
+        "name": "6 - 13:58",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_6",
+      "name": "7 - 14:01",
+      "description": "",
+      "date": "",
+      "time": "14:01",
+      "location": "7 - 14:01",
+      "latitude": 21.15598849049806,
+      "longitude": -101.6878164596118,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6878164596118,
+          21.15598849049806,
+          0
+        ]
+      },
+      "properties": {
+        "name": "7 - 14:01",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_7",
+      "name": "8 - 15:08",
+      "description": "",
+      "date": "",
+      "time": "15:08",
+      "location": "8 - 15:08",
+      "latitude": 21.1185181,
+      "longitude": -101.6795454,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6795454,
+          21.1185181,
+          0
+        ]
+      },
+      "properties": {
+        "name": "8 - 15:08",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_8",
+      "name": "9 - 15:10",
+      "description": "",
+      "date": "",
+      "time": "15:10",
+      "location": "9 - 15:10",
+      "latitude": 21.12126719151798,
+      "longitude": -101.6797755041148,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6797755041148,
+          21.12126719151798,
+          0
+        ]
+      },
+      "properties": {
+        "name": "9 - 15:10",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_9",
+      "name": "10 - 15:14",
+      "description": "",
+      "date": "",
+      "time": "15:14",
+      "location": "10 - 15:14",
+      "latitude": 21.12661063640037,
+      "longitude": -101.6843418106841,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6843418106841,
+          21.12661063640037,
+          0
+        ]
+      },
+      "properties": {
+        "name": "10 - 15:14",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_10",
+      "name": "11 - 15:17",
+      "description": "",
+      "date": "",
+      "time": "15:17",
+      "location": "11 - 15:17",
+      "latitude": 21.1377483,
+      "longitude": -101.6866692,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6866692,
+          21.1377483,
+          0
+        ]
+      },
+      "properties": {
+        "name": "11 - 15:17",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_11",
+      "name": "12 - 15:18",
+      "description": "",
+      "date": "",
+      "time": "15:18",
+      "location": "12 - 15:18",
+      "latitude": 21.14118090000001,
+      "longitude": -101.6885033,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6885033,
+          21.14118090000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "12 - 15:18",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_12",
+      "name": "13 - 15:20 a 15:22",
+      "description": "",
+      "date": "",
+      "time": "15:20",
+      "location": "13 - 15:20 a 15:22",
+      "latitude": 21.14529750000001,
+      "longitude": -101.6909069,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6909069,
+          21.14529750000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "13 - 15:20 a 15:22",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_13",
+      "name": "14 - 15:28",
+      "description": "",
+      "date": "",
+      "time": "15:28",
+      "location": "14 - 15:28",
+      "latitude": 21.15442990000001,
+      "longitude": -101.6878477999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6878477999999,
+          21.15442990000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "14 - 15:28",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_14",
+      "name": "15 - 15:31",
+      "description": "",
+      "date": "",
+      "time": "15:31",
+      "location": "15 - 15:31",
+      "latitude": 21.1626667,
+      "longitude": -101.6927685999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6927685999999,
+          21.1626667,
+          0
+        ]
+      },
+      "properties": {
+        "name": "15 - 15:31",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_15",
+      "name": "16 - 18:36 a 19:17",
+      "description": "",
+      "date": "",
+      "time": "18:36",
+      "location": "16 - 18:36 a 19:17",
+      "latitude": 21.16277470000001,
+      "longitude": -101.6926574,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6926574,
+          21.16277470000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "16 - 18:36 a 19:17",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_16",
+      "name": "17 - 19:32",
+      "description": "",
+      "date": "",
+      "time": "19:32",
+      "location": "17 - 19:32",
+      "latitude": 21.16150932597978,
+      "longitude": -101.6909829455999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6909829455999,
+          21.16150932597978,
+          0
+        ]
+      },
+      "properties": {
+        "name": "17 - 19:32",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_17",
+      "name": "18 - 19:34 a 19:59",
+      "description": "",
+      "date": "",
+      "time": "19:34",
+      "location": "18 - 19:34 a 19:59",
+      "latitude": 21.16355740000001,
+      "longitude": -101.6924417,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6924417,
+          21.16355740000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "18 - 19:34 a 19:59",
+        "visibility": false,
+        "styleUrl": "#m_ylw-pushpin0",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ffff7f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 1 de Octubre.kmz_18",
+      "name": "19 - 20:02",
+      "description": "",
+      "date": "",
+      "time": "20:02",
+      "location": "19 - 20:02",
+      "latitude": 21.1655528,
+      "longitude": -101.693681,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.693681,
+          21.1655528,
+          0
+        ]
+      },
+      "properties": {
+        "name": "19 - 20:02",
+        "visibility": false,
+        "styleUrl": "#msn_Z4",
+        "label-opacity": 1,
+        "label-color": "#ffff7f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ff0000",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/Z.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 19,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

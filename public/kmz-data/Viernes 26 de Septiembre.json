@@ -1,0 +1,121 @@
+{
+  "fileName": "Viernes 26 de Septiembre.kmz",
+  "features": [
+    {
+      "id": "Viernes 26 de Septiembre.kmz_0",
+      "name": "1 - 7:09",
+      "description": "",
+      "date": "",
+      "time": "07:09",
+      "location": "1 - 7:09",
+      "latitude": 21.16452480502578,
+      "longitude": -101.703114998953,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.703114998953,
+          21.16452480502578,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 7:09",
+        "visibility": false,
+        "styleUrl": "#msn_A0",
+        "label-opacity": 1,
+        "label-color": "#ff5500",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#55ff00",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/A.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Viernes 26 de Septiembre.kmz_1",
+      "name": "2 - 9:01",
+      "description": "",
+      "date": "",
+      "time": "09:01",
+      "location": "2 - 9:01",
+      "latitude": 21.15147382720389,
+      "longitude": -101.7193242414992,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7193242414992,
+          21.15147382720389,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 9:01",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle20",
+        "label-opacity": 1,
+        "label-color": "#ff5500",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ff5500",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Viernes 26 de Septiembre.kmz_2",
+      "name": "3 - 9:06 a 9:42",
+      "description": "",
+      "date": "",
+      "time": "09:06",
+      "location": "3 - 9:06 a 9:42",
+      "latitude": 21.15218061546942,
+      "longitude": -101.729203968431,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.729203968431,
+          21.15218061546942,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 9:06 a 9:42",
+        "visibility": false,
+        "styleUrl": "#msn_Z0",
+        "label-opacity": 1,
+        "label-color": "#ff5500",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ff0000",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/Z.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 3,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

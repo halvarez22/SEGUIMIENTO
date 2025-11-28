@@ -1,0 +1,555 @@
+{
+  "fileName": "Lunes 29 de Septiembre.kmz",
+  "features": [
+    {
+      "id": "Lunes 29 de Septiembre.kmz_0",
+      "name": "1 - 8:48",
+      "description": "",
+      "date": "",
+      "time": "08:48",
+      "location": "1 - 8:48",
+      "latitude": 21.15706871673165,
+      "longitude": -101.7005688649845,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7005688649845,
+          21.15706871673165,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 8:48",
+        "visibility": false,
+        "styleUrl": "#msn_A1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#55ff00",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/A.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_1",
+      "name": "2 - 9:08",
+      "description": "",
+      "date": "",
+      "time": "09:08",
+      "location": "2 - 9:08",
+      "latitude": 21.1598869,
+      "longitude": -101.6969732,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6969732,
+          21.1598869,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 9:08",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_2",
+      "name": "3 - 9:14",
+      "description": "",
+      "date": "",
+      "time": "09:14",
+      "location": "3 - 9:14",
+      "latitude": 21.1672406,
+      "longitude": -101.6939369,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6939369,
+          21.1672406,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 9:14",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_3",
+      "name": "4 - 10:04",
+      "description": "",
+      "date": "",
+      "time": "10:04",
+      "location": "4 - 10:04",
+      "latitude": 21.13848868742407,
+      "longitude": -101.7029584313482,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7029584313482,
+          21.13848868742407,
+          0
+        ]
+      },
+      "properties": {
+        "name": "4 - 10:04",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_4",
+      "name": "5 - 11:20",
+      "description": "",
+      "date": "",
+      "time": "11:20",
+      "location": "5 - 11:20",
+      "latitude": 21.10598441321605,
+      "longitude": -101.7111934193299,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7111934193299,
+          21.10598441321605,
+          0
+        ]
+      },
+      "properties": {
+        "name": "5 - 11:20",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_5",
+      "name": "6 - 11:22",
+      "description": "",
+      "date": "",
+      "time": "11:22",
+      "location": "6 - 11:22",
+      "latitude": 21.1168081,
+      "longitude": -101.7083417,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7083417,
+          21.1168081,
+          0
+        ]
+      },
+      "properties": {
+        "name": "6 - 11:22",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_6",
+      "name": "7 - 11:26",
+      "description": "",
+      "date": "",
+      "time": "11:26",
+      "location": "7 - 11:26",
+      "latitude": 21.13105685865228,
+      "longitude": -101.7036833887018,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7036833887018,
+          21.13105685865228,
+          0
+        ]
+      },
+      "properties": {
+        "name": "7 - 11:26",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_7",
+      "name": "8 - 11:32",
+      "description": "",
+      "date": "",
+      "time": "11:32",
+      "location": "8 - 11:32",
+      "latitude": 21.1477576485351,
+      "longitude": -101.7027942866443,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7027942866443,
+          21.1477576485351,
+          0
+        ]
+      },
+      "properties": {
+        "name": "8 - 11:32",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_8",
+      "name": "9 - 11:34",
+      "description": "",
+      "date": "",
+      "time": "11:34",
+      "location": "9 - 11:34",
+      "latitude": 21.1513242,
+      "longitude": -101.6974116,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6974116,
+          21.1513242,
+          0
+        ]
+      },
+      "properties": {
+        "name": "9 - 11:34",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_9",
+      "name": "10 - 11:52",
+      "description": "",
+      "date": "",
+      "time": "11:52",
+      "location": "10 - 11:52",
+      "latitude": 21.14927699999999,
+      "longitude": -101.6902229,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6902229,
+          21.14927699999999,
+          0
+        ]
+      },
+      "properties": {
+        "name": "10 - 11:52",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_10",
+      "name": "11 - 12:13",
+      "description": "",
+      "date": "",
+      "time": "12:13",
+      "location": "11 - 12:13",
+      "latitude": 21.1544626,
+      "longitude": -101.6840999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6840999,
+          21.1544626,
+          0
+        ]
+      },
+      "properties": {
+        "name": "11 - 12:13",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_11",
+      "name": "12 - 12:16",
+      "description": "",
+      "date": "",
+      "time": "12:16",
+      "location": "12 - 12:16",
+      "latitude": 21.15928886872839,
+      "longitude": -101.6918561819072,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6918561819072,
+          21.15928886872839,
+          0
+        ]
+      },
+      "properties": {
+        "name": "12 - 12:16",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_12",
+      "name": "13 - 12:21",
+      "description": "",
+      "date": "",
+      "time": "12:21",
+      "location": "13 - 12:21",
+      "latitude": 21.16979564440832,
+      "longitude": -101.7030115104855,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7030115104855,
+          21.16979564440832,
+          0
+        ]
+      },
+      "properties": {
+        "name": "13 - 12:21",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_13",
+      "name": "14 - 12:21 a 16:28",
+      "description": "",
+      "date": "",
+      "time": "12:21",
+      "location": "14 - 12:21 a 16:28",
+      "latitude": 21.1700073,
+      "longitude": -101.7029592,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7029592,
+          21.1700073,
+          0
+        ]
+      },
+      "properties": {
+        "name": "14 - 12:21 a 16:28",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_14",
+      "name": "15 - 19:49",
+      "description": "",
+      "date": "",
+      "time": "19:49",
+      "location": "15 - 19:49",
+      "latitude": 21.15874825366891,
+      "longitude": -101.6981178660744,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6981178660744,
+          21.15874825366891,
+          0
+        ]
+      },
+      "properties": {
+        "name": "15 - 19:49",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_15",
+      "name": "16 - 19:54",
+      "description": "",
+      "date": "",
+      "time": "19:54",
+      "location": "16 - 19:54",
+      "latitude": 21.15895240000001,
+      "longitude": -101.7061837999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7061837999999,
+          21.15895240000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "16 - 19:54",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00ff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 29 de Septiembre.kmz_16",
+      "name": "17 - 20:26",
+      "description": "",
+      "date": "",
+      "time": "20:26",
+      "location": "17 - 20:26",
+      "latitude": 21.15812072833065,
+      "longitude": -101.7020396284922,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7020396284922,
+          21.15812072833065,
+          0
+        ]
+      },
+      "properties": {
+        "name": "17 - 20:26",
+        "visibility": false,
+        "styleUrl": "#msn_Z1",
+        "label-opacity": 1,
+        "label-color": "#00ff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ff0000",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/Z.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 17,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

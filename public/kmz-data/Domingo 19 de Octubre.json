@@ -1,0 +1,66 @@
+{
+  "fileName": "Domingo 19 de Octubre.kmz",
+  "features": [
+    {
+      "id": "Domingo 19 de Octubre.kmz_0",
+      "name": "1 - 11:22",
+      "description": "",
+      "date": "",
+      "time": "11:22",
+      "location": "1 - 11:22",
+      "latitude": 21.15218339183549,
+      "longitude": -101.6947218377793,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6947218377793,
+          21.15218339183549,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 11:22",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle2",
+        "label-scale": 0.8,
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Domingo 19 de Octubre.kmz_1",
+      "name": "2 - 11:34",
+      "description": "",
+      "date": "",
+      "time": "11:34",
+      "location": "2 - 11:34",
+      "latitude": 21.160503,
+      "longitude": -101.6919588,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6919588,
+          21.160503,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 11:34",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle2",
+        "label-scale": 0.8,
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 2,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

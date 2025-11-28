@@ -1,0 +1,136 @@
+{
+  "fileName": "Lunes 20 de Octubre.kmz",
+  "features": [
+    {
+      "id": "Lunes 20 de Octubre.kmz_0",
+      "name": "1 - 9:24 a 9:48",
+      "description": "",
+      "date": "",
+      "time": "09:24",
+      "location": "1 - 9:24 a 9:48",
+      "latitude": 21.16135319622655,
+      "longitude": -101.6911300263381,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6911300263381,
+          21.16135319622655,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 9:24 a 9:48",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle0",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#aaff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 20 de Octubre.kmz_1",
+      "name": "2 - 11:10",
+      "description": "",
+      "date": "",
+      "time": "11:10",
+      "location": "2 - 11:10",
+      "latitude": 21.1679564,
+      "longitude": -101.6974112,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6974112,
+          21.1679564,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 11:10",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle0",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#aaff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 20 de Octubre.kmz_2",
+      "name": "3 - 13:05",
+      "description": "",
+      "date": "",
+      "time": "13:05",
+      "location": "3 - 13:05",
+      "latitude": 21.17003336152039,
+      "longitude": -101.7035466294627,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7035466294627,
+          21.17003336152039,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 13:05",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle0",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#aaff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Lunes 20 de Octubre.kmz_3",
+      "name": "4 - 15:47 a 19:53",
+      "description": "",
+      "date": "",
+      "time": "15:47",
+      "location": "4 - 15:47 a 19:53",
+      "latitude": 21.17294003461186,
+      "longitude": -101.6905423214098,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6905423214098,
+          21.17294003461186,
+          0
+        ]
+      },
+      "properties": {
+        "name": "4 - 15:47 a 19:53",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle0",
+        "label-opacity": 1,
+        "label-color": "#aaff00",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#aaff00",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 4,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "fileName": "Miércoles 24 de Septiembre.kmz",
+  "features": [
+    {
+      "id": "Miércoles 24 de Septiembre.kmz_0",
+      "name": "1 - 9:02",
+      "description": "",
+      "date": "",
+      "time": "09:02",
+      "location": "1 - 9:02",
+      "latitude": 21.15073019999999,
+      "longitude": -101.6844702,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6844702,
+          21.15073019999999,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 9:02",
+        "visibility": false,
+        "styleUrl": "#msn_A20",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#55ff00",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/A.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 24 de Septiembre.kmz_1",
+      "name": "2 - 9:09",
+      "description": "",
+      "date": "",
+      "time": "09:09",
+      "location": "2 - 9:09",
+      "latitude": 21.15836910000001,
+      "longitude": -101.6915505,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6915505,
+          21.15836910000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 9:09",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle000",
+        "label-scale": 0.8,
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 24 de Septiembre.kmz_2",
+      "name": "3 - 9:14 a 9:15",
+      "description": "",
+      "date": "",
+      "time": "09:14",
+      "location": "3 - 9:14 a 9:15",
+      "latitude": 21.16723106171155,
+      "longitude": -101.6939343341596,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6939343341596,
+          21.16723106171155,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 9:14 a 9:15",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle000",
+        "label-scale": 0.8,
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 24 de Septiembre.kmz_3",
+      "name": "4 - 9:17",
+      "description": "",
+      "date": "",
+      "time": "09:17",
+      "location": "4 - 9:17",
+      "latitude": 21.1653043,
+      "longitude": -101.6930690999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6930690999999,
+          21.1653043,
+          0
+        ]
+      },
+      "properties": {
+        "name": "4 - 9:17",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle000",
+        "label-scale": 0.8,
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 24 de Septiembre.kmz_4",
+      "name": "5 - 9:26 a 9:27",
+      "description": "",
+      "date": "",
+      "time": "09:26",
+      "location": "5 - 9:26 a 9:27",
+      "latitude": 21.16226179929028,
+      "longitude": -101.6924359583103,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6924359583103,
+          21.16226179929028,
+          0
+        ]
+      },
+      "properties": {
+        "name": "5 - 9:26 a 9:27",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle000",
+        "label-scale": 0.8,
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 24 de Septiembre.kmz_5",
+      "name": "6 - 9:30",
+      "description": "",
+      "date": "",
+      "time": "09:30",
+      "location": "6 - 9:30",
+      "latitude": 21.16752850000001,
+      "longitude": -101.6933281,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6933281,
+          21.16752850000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "6 - 9:30",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle000",
+        "label-scale": 0.8,
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 24 de Septiembre.kmz_6",
+      "name": "7 - 12:34 a 13:17",
+      "description": "",
+      "date": "",
+      "time": "12:34",
+      "location": "7 - 12:34 a 13:17",
+      "latitude": 21.0850551,
+      "longitude": -101.6136392,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6136392,
+          21.0850551,
+          0
+        ]
+      },
+      "properties": {
+        "name": "7 - 12:34 a 13:17",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle000",
+        "label-scale": 0.8,
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Miércoles 24 de Septiembre.kmz_7",
+      "name": "8 - 13:38",
+      "description": "",
+      "date": "",
+      "time": "13:38",
+      "location": "8 - 13:38",
+      "latitude": 21.17334128317293,
+      "longitude": -101.66251882632,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.66251882632,
+          21.17334128317293,
+          0
+        ]
+      },
+      "properties": {
+        "name": "8 - 13:38",
+        "visibility": false,
+        "styleUrl": "#msn_Z2",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#ff5500",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/Z.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 8,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

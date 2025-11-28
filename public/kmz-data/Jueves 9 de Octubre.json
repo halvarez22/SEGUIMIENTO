@@ -1,0 +1,389 @@
+{
+  "fileName": "Jueves 9 de Octubre.kmz",
+  "features": [
+    {
+      "id": "Jueves 9 de Octubre.kmz_0",
+      "name": "1 - 9:32",
+      "description": "",
+      "date": "",
+      "time": "09:32",
+      "location": "1 - 9:32",
+      "latitude": 21.08685427303497,
+      "longitude": -101.6173825743021,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6173825743021,
+          21.08685427303497,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 9:32",
+        "visibility": false,
+        "styleUrl": "#msn_A",
+        "icon-opacity": 1,
+        "icon-color": "#55ff00",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/A.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_1",
+      "name": "2 - 9:34",
+      "description": "",
+      "date": "",
+      "time": "09:34",
+      "location": "2 - 9:34",
+      "latitude": 21.0783213,
+      "longitude": -101.6060237,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6060237,
+          21.0783213,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 9:34",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_2",
+      "name": "3 - 9:35",
+      "description": "",
+      "date": "",
+      "time": "09:35",
+      "location": "3 - 9:35",
+      "latitude": 21.0727954,
+      "longitude": -101.5987126,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.5987126,
+          21.0727954,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 9:35",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_3",
+      "name": "4 - 9:46",
+      "description": "",
+      "date": "",
+      "time": "09:46",
+      "location": "4 - 9:46",
+      "latitude": 21.0135273,
+      "longitude": -101.4998595,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.4998595,
+          21.0135273,
+          0
+        ]
+      },
+      "properties": {
+        "name": "4 - 9:46",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_4",
+      "name": "5 - 9:52 a 10:13",
+      "description": "",
+      "date": "",
+      "time": "09:52",
+      "location": "5 - 9:52 a 10:13",
+      "latitude": 21.0192888174816,
+      "longitude": -101.4978003353146,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.4978003353146,
+          21.0192888174816,
+          0
+        ]
+      },
+      "properties": {
+        "name": "5 - 9:52 a 10:13",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_5",
+      "name": "6 - 10:52",
+      "description": "",
+      "date": "",
+      "time": "10:52",
+      "location": "6 - 10:52",
+      "latitude": 21.0727968,
+      "longitude": -101.5989032,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.5989032,
+          21.0727968,
+          0
+        ]
+      },
+      "properties": {
+        "name": "6 - 10:52",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_6",
+      "name": "7 - 10:53",
+      "description": "",
+      "date": "",
+      "time": "10:53",
+      "location": "7 - 10:53",
+      "latitude": 21.082202,
+      "longitude": -101.6100338,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6100338,
+          21.082202,
+          0
+        ]
+      },
+      "properties": {
+        "name": "7 - 10:53",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_7",
+      "name": "8 - 11:09",
+      "description": "",
+      "date": "",
+      "time": "11:09",
+      "location": "8 - 11:09",
+      "latitude": 21.1608451,
+      "longitude": -101.6886890999999,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6886890999999,
+          21.1608451,
+          0
+        ]
+      },
+      "properties": {
+        "name": "8 - 11:09",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_8",
+      "name": "9 - 11:18",
+      "description": "",
+      "date": "",
+      "time": "11:18",
+      "location": "9 - 11:18",
+      "latitude": 21.15784746104219,
+      "longitude": -101.6989081692054,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6989081692054,
+          21.15784746104219,
+          0
+        ]
+      },
+      "properties": {
+        "name": "9 - 11:18",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_9",
+      "name": "10 - 11:29",
+      "description": "",
+      "date": "",
+      "time": "11:29",
+      "location": "10 - 11:29",
+      "latitude": 21.15761794405915,
+      "longitude": -101.7008374293036,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7008374293036,
+          21.15761794405915,
+          0
+        ]
+      },
+      "properties": {
+        "name": "10 - 11:29",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_10",
+      "name": "11 - 12:06 a 12:11",
+      "description": "",
+      "date": "",
+      "time": "12:06",
+      "location": "11 - 12:06 a 12:11",
+      "latitude": 21.15867380000001,
+      "longitude": -101.7044095,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.7044095,
+          21.15867380000001,
+          0
+        ]
+      },
+      "properties": {
+        "name": "11 - 12:06 a 12:11",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 9 de Octubre.kmz_11",
+      "name": "12 - 12:25",
+      "description": "",
+      "date": "",
+      "time": "12:25",
+      "location": "12 - 12:25",
+      "latitude": 21.16373658604948,
+      "longitude": -101.6928731441557,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6928731441557,
+          21.16373658604948,
+          0
+        ]
+      },
+      "properties": {
+        "name": "12 - 12:25",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle00",
+        "label-opacity": 1,
+        "label-color": "#00007f",
+        "label-scale": 0.8,
+        "icon-opacity": 1,
+        "icon-color": "#00007f",
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 12,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

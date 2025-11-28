@@ -1,0 +1,444 @@
+{
+  "fileName": "Jueves 2 de Octubre.kmz",
+  "features": [
+    {
+      "id": "Jueves 2 de Octubre.kmz_0",
+      "name": "1 - 8:50",
+      "description": "",
+      "date": "",
+      "time": "08:50",
+      "location": "1 - 8:50",
+      "latitude": 21.16754762046869,
+      "longitude": -101.6931407126501,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6931407126501,
+          21.16754762046869,
+          0
+        ]
+      },
+      "properties": {
+        "name": "1 - 8:50",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle3",
+        "label-scale": 0.8,
+        "icon-scale": 0.9,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_1",
+      "name": "2 - 10:16",
+      "description": "",
+      "date": "",
+      "time": "10:16",
+      "location": "2 - 10:16",
+      "latitude": 21.14669489999999,
+      "longitude": -101.6543077,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6543077,
+          21.14669489999999,
+          0
+        ]
+      },
+      "properties": {
+        "name": "2 - 10:16",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle31",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_2",
+      "name": "3 - 10:20",
+      "description": "",
+      "date": "",
+      "time": "10:20",
+      "location": "3 - 10:20",
+      "latitude": 21.14066438577899,
+      "longitude": -101.6333787293694,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6333787293694,
+          21.14066438577899,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3 - 10:20",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_3",
+      "name": "4 - 11:14",
+      "description": "",
+      "date": "",
+      "time": "11:14",
+      "location": "4 - 11:14",
+      "latitude": 21.08029939999999,
+      "longitude": -101.6079636,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6079636,
+          21.08029939999999,
+          0
+        ]
+      },
+      "properties": {
+        "name": "4 - 11:14",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_4",
+      "name": "5 - 11:33 a 16:01",
+      "description": "",
+      "date": "",
+      "time": "11:33",
+      "location": "5 - 11:33 a 16:01",
+      "latitude": 21.17308269999999,
+      "longitude": -101.6668964,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6668964,
+          21.17308269999999,
+          0
+        ]
+      },
+      "properties": {
+        "name": "5 - 11:33 a 16:01",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_5",
+      "name": "6 - 16:14",
+      "description": "",
+      "date": "",
+      "time": "16:14",
+      "location": "6 - 16:14",
+      "latitude": 21.07650570917615,
+      "longitude": -101.6038746059615,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6038746059615,
+          21.07650570917615,
+          0
+        ]
+      },
+      "properties": {
+        "name": "6 - 16:14",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_6",
+      "name": "7 - 16:33",
+      "description": "",
+      "date": "",
+      "time": "16:33",
+      "location": "7 - 16:33",
+      "latitude": 21.01993664482151,
+      "longitude": -101.488478191415,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.488478191415,
+          21.01993664482151,
+          0
+        ]
+      },
+      "properties": {
+        "name": "7 - 16:33",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_7",
+      "name": "8 - 16:37 a 16:54",
+      "description": "",
+      "date": "",
+      "time": "16:37",
+      "location": "8 - 16:37 a 16:54",
+      "latitude": 21.02018502248783,
+      "longitude": -101.4885718086402,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.4885718086402,
+          21.02018502248783,
+          0
+        ]
+      },
+      "properties": {
+        "name": "8 - 16:37 a 16:54",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_8",
+      "name": "9 - 17:10",
+      "description": "",
+      "date": "",
+      "time": "17:10",
+      "location": "9 - 17:10",
+      "latitude": 21.02033897439967,
+      "longitude": -101.4886992526434,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.4886992526434,
+          21.02033897439967,
+          0
+        ]
+      },
+      "properties": {
+        "name": "9 - 17:10",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_9",
+      "name": "10 - 17:53",
+      "description": "",
+      "date": "",
+      "time": "17:53",
+      "location": "10 - 17:53",
+      "latitude": 21.06429832822122,
+      "longitude": -101.5879972566154,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.5879972566154,
+          21.06429832822122,
+          0
+        ]
+      },
+      "properties": {
+        "name": "10 - 17:53",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_10",
+      "name": "11 - 17:54",
+      "description": "",
+      "date": "",
+      "time": "17:54",
+      "location": "11 - 17:54",
+      "latitude": 21.0660682283582,
+      "longitude": -101.5902667583382,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.5902667583382,
+          21.0660682283582,
+          0
+        ]
+      },
+      "properties": {
+        "name": "11 - 17:54",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_11",
+      "name": "12 - 18:01",
+      "description": "",
+      "date": "",
+      "time": "18:01",
+      "location": "12 - 18:01",
+      "latitude": 21.07377596291484,
+      "longitude": -101.6015924608652,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6015924608652,
+          21.07377596291484,
+          0
+        ]
+      },
+      "properties": {
+        "name": "12 - 18:01",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_12",
+      "name": "13 - 18:12",
+      "description": "",
+      "date": "",
+      "time": "18:12",
+      "location": "13 - 18:12",
+      "latitude": 21.10348867943108,
+      "longitude": -101.6397676165866,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6397676165866,
+          21.10348867943108,
+          0
+        ]
+      },
+      "properties": {
+        "name": "13 - 18:12",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_13",
+      "name": "14 - 18:14",
+      "description": "",
+      "date": "",
+      "time": "18:14",
+      "location": "14 - 18:14",
+      "latitude": 21.10438931723144,
+      "longitude": -101.6428391601767,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6428391601767,
+          21.10438931723144,
+          0
+        ]
+      },
+      "properties": {
+        "name": "14 - 18:14",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_14",
+      "name": "15 - 18:41",
+      "description": "",
+      "date": "",
+      "time": "18:41",
+      "location": "15 - 18:41",
+      "latitude": 21.11986661927098,
+      "longitude": -101.6694399145189,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.6694399145189,
+          21.11986661927098,
+          0
+        ]
+      },
+      "properties": {
+        "name": "15 - 18:41",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    },
+    {
+      "id": "Jueves 2 de Octubre.kmz_15",
+      "name": "16 - 19:49",
+      "description": "",
+      "date": "",
+      "time": "19:49",
+      "location": "16 - 19:49",
+      "latitude": 21.1522883,
+      "longitude": -101.676744,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.676744,
+          21.1522883,
+          0
+        ]
+      },
+      "properties": {
+        "name": "16 - 19:49",
+        "visibility": false,
+        "styleUrl": "#msn_placemark_circle5",
+        "label-scale": 0.9,
+        "icon-scale": 0.8,
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png"
+      },
+      "source": "kmz"
+    }
+  ],
+  "metadata": {
+    "totalPoints": 16,
+    "dateRange": {
+      "start": "",
+      "end": ""
+    }
+  }
+}
